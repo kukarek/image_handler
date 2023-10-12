@@ -3,7 +3,7 @@ import os
 import random
 from io import BytesIO
 import requests
-from config import OVERLAY_FOLDER_FR, OVERLAY_FOLDER_SP, BACKGROUNDS_LIST, FOOTAGE_FOLDER
+from config import OVERLAY_FOLDER_FR, OVERLAY_FOLDER_SP, OVERLAY_FOLDER_RM, BACKGROUNDS_LIST, FOOTAGE_FOLDER
 
 
 def start_combine(country, footage):
@@ -16,7 +16,7 @@ def start_combine(country, footage):
     if country == "SPAIN":
         overlay_folder = OVERLAY_FOLDER_SP
     if country == "ROMANIA":
-        overlay_folder = OVERLAY_FOLDER_SP
+        overlay_folder = OVERLAY_FOLDER_RM
     #получение спика фоток для наложения
     overlay_dict = {}
 

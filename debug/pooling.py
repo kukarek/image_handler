@@ -145,6 +145,10 @@ async def admin_panel(message):
             await message.answer("Футажи отключены!")
             return True
         
+        elif "sendall" in message.text:
+            users = sql.get_all_users()
+            print()
+        
     return False
 
 @dp.message_handler(commands=['help'])
