@@ -5,17 +5,10 @@ from aiogram.utils import executor
 import image_handler
 from io import BytesIO
 from aiogram.types import InputMediaPhoto
-from PIL import Image
 import time
-
-
-API_TOKEN = '6516087703:AAFogf1wdiNFFkolsNWMjOvSXj0BN3ypi5g'  # рабочий токен бота для выдачи фото
-
-admins = [1020541698, 6356732052]
-
-on_off = "Off"
-#условный текстовый массив
-threads = []
+import sql
+import chatbot_logic
+from config import API_TOKEN, ADMINS, ON_OFF, IS_ENABLE_FOOTAGE, THREADS, HELP, FR_COUNT, SP_COUNT, RM_COUNT, BACKGROUNDS_LIST
 
 # Установка уровня логирования
 logging.basicConfig(level=logging.INFO)
@@ -25,56 +18,60 @@ bot = Bot(token=API_TOKEN)
 dp = Dispatcher(bot)
 
 def admin(id):
-    for admin in admins:
+    for admin in ADMINS:
         if admin == id:
             return True
     return False
 
-@dp.message_handler(commands=['start'])
-async def on_start(message: Message):
-    """
-    Обработчик команды /start.
-    Отправляет приветственное сообщение.
-    """
-    if on_off == "On" or admin(message.from_id):
-
-        keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True, selective=True)
-        # Добавляем кнопки
-        button1 = types.KeyboardButton("Получить фото (Франция)")
-        button2 = types.KeyboardButton("Получить фото (Испания)")
-
-        keyboard.add(button1)
-        keyboard.add(button2)
-        # Отправляем сообщение с клавиатурой
-        await message.answer(text="Бим бим бам бам", reply_markup=keyboard)
-
-    else:
-        await message.answer("Бот временно остановлен администратором")
 
 @dp.message_handler(commands=['count'])
 async def count(message: Message):
-    if on_off == "On" or admin(message.from_id):
-        with open(image_handler.backgrounds_list, 'r') as file:
+    if admin(message.from_id):
+        with open(BACKGROUNDS_LIST, 'r') as file:
             # Прочитайте строки из файла и создайте массив ссылок
             links = [line.strip() for line in file]
 
         await message.answer(text=len(links))
-    else:
-        await message.answer("Бот временно остановлен администратором")
 
-@dp.message_handler(lambda message: message.text == 'Получить фото (Франция)')
-async def get_photo(message: Message):
+@dp.message_handler(commands=['stats'])
+async def count(message: Message):
+    if admin(message.from_id):
 
-    
-    if on_off == "On" or admin(message.from_id):
-        if len(threads) > 10:
+        country = (f"Пролив по Франции: {FR_COUNT}\n"+
+                   f"Пролив по Испании: {SP_COUNT}\n"+
+                   f"Пролив по Румынии: {RM_COUNT}\n")
+
+
+        await message.answer(country)
+
+#счетчик для статистики
+def counter(status):
+
+    global FR_COUNT
+    global SP_COUNT
+    global RM_COUNT
+
+    if status == "FRANCE":
+        FR_COUNT += 1
+    if status == "SPAIN":
+        SP_COUNT += 1
+    if status == "ROMANIA":
+        RM_COUNT += 1
+
+
+async def get_photo(message, status):
+
+    if ON_OFF == "On" or admin(message.from_id):
+        if len(THREADS) > 10:
 
             await message.answer("Большая нагрузка на бота, попробуйте позже!")
         else:
+            #отслеживание общей нагрузки
+            THREADS.append("thread")
+            #счетчик для статистики пролива
+            counter(status)
 
-            threads.append("thread")
-            
-            images = image_handler.start_combine(country="FRANCE")
+            images = image_handler.start_combine(country=status, footage=IS_ENABLE_FOOTAGE)
 
             if images:
 
@@ -91,64 +88,80 @@ async def get_photo(message: Message):
                 print("Фото сгенерированы!")
 
             await message.answer_media_group(media = input_media_images)
-            threads.pop()
+            THREADS.pop()
 
     else:
         await message.answer("Бот временно остановлен администратором")
     
-@dp.message_handler(lambda message: message.text == 'Получить фото (Испания)')
-async def get_photo(message: Message):
+async def admin_panel(message):
 
-    
-    if on_off == "On" or admin(message.from_id):
-        if len(threads) > 10:
+    global ON_OFF
+    global IS_ENABLE_FOOTAGE
 
-            await message.answer("Большая нагрузка на бота, попробуйте позже!")
-        else:
+    if admin(message.from_id):
+        #добавление администратора
+        if "add" in message.text:
+            admin_id = int(message.text.split(" ")[1])
+            ADMINS.append(admin_id)
+            await message.answer(f"Добавлен администратор с id: {admin_id}")
+            return True
 
-            threads.append("thread")
+        #остановка бота
+        elif message.text == "stop":
+            if ON_OFF == "On":
+                ON_OFF = "Off"
+                await message.answer("Остановка бота")
+            else:
+                await message.answer("Бот уже остановлен")
+            return True
+
+        #запуск бота
+        elif message.text == "start":
+            if ON_OFF == "Off":
+                ON_OFF = "On"
+                await message.answer("Запуск бота")
+            else:
+                await message.answer("Бот уже запущен")
+            return True
+
+        #статус
+        elif message.text == "status":
             
-            images = image_handler.start_combine(country="SPAIN")
+            await message.answer(ON_OFF)
+            return True
 
-            if images:
+        elif message.text == "footage":
+            
+            await message.answer(IS_ENABLE_FOOTAGE)
+            return True
 
-                input_media_images = []
-                
-                i = 0
-
-                while i < len(images) - 1:
-                    image_stream = BytesIO()
-                    images[i].save(image_stream, format='JPEG')
-                    image_stream.seek(0)
-                    input_media_images.append(InputMediaPhoto(media=image_stream)) 
-                    i = i + 1   
-                print("Фото сгенерированы!")
-
-            await message.answer_media_group(media = input_media_images)
-            threads.pop()
-
-    else:
-        await message.answer("Бот временно остановлен администратором")
+        elif message.text == "footage on":
+            IS_ENABLE_FOOTAGE = "On"
+            await message.answer("Футажи включены!")
+            return True
+        
+        elif message.text == "footage off":
+            IS_ENABLE_FOOTAGE = "Off"
+            await message.answer("Футажи отключены!")
+            return True
+        
+    return False
 
 @dp.message_handler(commands=['help'])
 async def on_start(message: Message):
 
     if admin(message.from_id):
-        await message.answer(text="stop - остановка бота\n"+
-                                    "start - запуск бота\n"
-                                    "add (id) - добавление админа\n"
-                                    "(текстовый документ) - добавление списка фонов\n"
-                                    "(группа фотографий) - изменение фото\n"
-                                    "/help - список функций админ-панели")
+        await message.answer(HELP)
 
 # Обработчик приема документа
 @dp.message_handler(content_types=[types.ContentType.DOCUMENT])
 async def process_document(message: types.Message):
-    global on_off
+    global ON_OFF
+    global BACKGROUNDS_LIST
     try:
         #добавление списка фонов
         if admin(message.from_id):
-            on_off = "Off"
+            ON_OFF = "Off"
             time.sleep(10)
             # Скачиваем документ
             file_path = await bot.get_file(message.document.file_id)
@@ -159,82 +172,50 @@ async def process_document(message: types.Message):
             new_backgrounds = document_bytes.decode("utf-8")      
             new_backgrounds = new_backgrounds.replace("\r", "") 
 
-            with open(image_handler.backgrounds_list, "a") as file:
+            with open(BACKGROUNDS_LIST, "a") as file:
                 # Добавляем новый текст с новой строкой
                 file.write("\n"+ new_backgrounds)   
 
-            on_off = "On"
+            ON_OFF = "On"
             await message.answer(text="Фоны успешно добавлены!")
     except:
         await message.answer("Произошла ошибка")
-"""
-@dp.message_handler(content_types=[types.ContentType.PHOTO])
-async def process_photos(message: types.Message):
 
-    try:
-        if admin(message.from_id):
-
-            on_off = "Off"
-            #time.sleep(10)
-            #удаляем старые фото
-            image_handler.clear_overlays()
-
-            # Скачиваем и сохраняем новые фотографии
-            for i, photo in enumerate(message.photo):
-                file_id = photo.file_id
-                file_path = await bot.get_file(file_id)
-                file_name = f"{i+1}.jpg"  # Имя файла, например, "1.jpg", "2.jpg" и так далее
-                downloaded_photo = await bot.download_file(file_path.file_path)
-                with open(os.path.join(image_handler.overlay_folder, file_name), "wb") as file:
-                    file.write(downloaded_photo.read())
-
-            #on_off = "On"
-            await message.answer(text="Фото успешно изменены!")
-    except:
-        await message.answer("Произошла ошибка")
-"""
 @dp.message_handler()
 async def echo(message: Message):
-    global footage
-    global on_off
+    global IS_ENABLE_FOOTAGE
+    global ON_OFF
     try:
-        if admin(message.from_id):
 
-            #добавление администратора
-            if "add" in message.text:
-                admin_id = int(message.text.split(" ")[1])
-                admins.append(admin_id)
-                await message.answer(f"Добавлен администратор с id: {admin_id}")
-
-            #остановка бота
-            elif message.text == "stop":
-                if on_off == "On":
-                    on_off = "Off"
-                    await message.answer("Остановка бота")
-                else:
-                    await message.answer("Бот уже остановлен")
-
-            #запуск бота
-            elif message.text == "start":
-                if on_off == "Off":
-                    on_off = "On"
-                    await message.answer("Запуск бота")
-                else:
-                    await message.answer("Бот уже запущен")
-
-            #статус
-            elif message.text == "status":
-                
-                await message.answer(on_off)
-
+        #если действие было с админ панелью, выходим
+        if(await admin_panel(message=message)):
             return
-            
-    except: 
-        await message.answer(text="Попробуйте позже")
+        
+        if ON_OFF == "On" or admin(message.from_id):
+            #подключаем логику чат-бота
+            response, keyboard, status = chatbot_logic.reply_message_handler(user_id=message.from_id, message_text=message.text)
+
+            #если ответ None, значит просто обрабатываем фото
+            if response:
+                if keyboard:
+                    await message.answer(text=response, reply_markup=keyboard)
+                else:
+                    await message.answer(text=response)
+            else:
+                await get_photo(message, status)
+
+        else:
+            await message.answer("Бот временно остановлен администратором!")
+
+        
+
+    except Exception as e: 
+        await message.answer(text=f"Попробуйте позже\n\n{e}")
 
 
 def main():
     # Запуск бота
+    sql.create_connection()
     executor.start_polling(dp, skip_updates=True)
 
 if __name__ == '__main__':

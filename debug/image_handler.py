@@ -3,29 +3,20 @@ import os
 import random
 from io import BytesIO
 import requests
-
-overlay_folder_FR = "C:\\Users\\mik16\\Documents\\GitHub\\projects\\bobhell\\image handler\\overlay_FR"
-overlay_folder_SP = "C:\\Users\\mik16\\Documents\\GitHub\\projects\\bobhell\\image handler\\overlay_SP"
-
-backgrounds_list = "C:\\Users\\mik16\\Documents\\GitHub\\projects\\bobhell\\image handler\\backgrounds.txt"
-
-footage_folder = "C:\\Users\\mik16\\Documents\\GitHub\\projects\\bobhell\\image handler"
+from config import OVERLAY_FOLDER_FR, OVERLAY_FOLDER_SP, BACKGROUNDS_LIST, FOOTAGE_FOLDER
 
 
-def clear_overlays():
-    # Получаем список файлов и подпапок в папке
-    files = os.listdir(overlay_folder)
-    for file in files:
-        if file != "a.jpg":
-            file_path = os.path.join(overlay_folder, file)
-            os.remove(file_path)
+def start_combine(country, footage):
 
-def start_combine(country):
+    #делаю так, чтобы все 9 фото были либо с футажами либо без
+    footage_enable = footage
 
     if country == "FRANCE":
-        overlay_folder = overlay_folder_FR
+        overlay_folder = OVERLAY_FOLDER_FR
     if country == "SPAIN":
-        overlay_folder = overlay_folder_SP
+        overlay_folder = OVERLAY_FOLDER_SP
+    if country == "ROMANIA":
+        overlay_folder = OVERLAY_FOLDER_SP
     #получение спика фоток для наложения
     overlay_dict = {}
 
@@ -42,7 +33,7 @@ def start_combine(country):
             overlay_dict[filename] = image
 
     #получение рандомной ссылки на фото из списка ссылок фонов
-    with open(backgrounds_list, 'r') as file:
+    with open(BACKGROUNDS_LIST, 'r') as file:
         # Прочитайте строки из файла и создайте массив ссылок
         links = [line.strip() for line in file]
 
@@ -62,9 +53,9 @@ def start_combine(country):
 
     for overlay in sorted(overlay_dict):
         if i % 2 == 0:
-            image = combine(overlay_image=overlay_dict[overlay], background_image=background1, result_name=overlay)
+            image = combine(overlay_image=overlay_dict[overlay], background_image=background1, result_name=overlay, footage_enable=footage_enable)
         else:
-            image = combine(overlay_image=overlay_dict[overlay], background_image=background2, result_name=overlay)
+            image = combine(overlay_image=overlay_dict[overlay], background_image=background2, result_name=overlay, footage_enable=footage_enable)
         i = i + 1
         result_images.append(image)
     
@@ -77,7 +68,7 @@ def start_combine(country):
     links.remove(random_link2)
 
     # Откройте файл для записи и перезапишите его с обновленным списком ссылок
-    with open(backgrounds_list, 'w') as file:
+    with open(BACKGROUNDS_LIST, 'w') as file:
         for link in links:
             file.write(link + '\n')
 
@@ -90,7 +81,7 @@ def start_combine(country):
 
 
 
-def combine(overlay_image, background_image, result_name):
+def combine(overlay_image, background_image, result_name, footage_enable):
 
     # Получаем размеры изображения
     width, height = background_image.size
@@ -125,25 +116,27 @@ def combine(overlay_image, background_image, result_name):
     # Создаем новое изображение, накладывая фон и наложение
     result = background_image.copy()
     result.paste(overlay_image, (x, y))
-    """
-    footage = Image.open(f"{footage_folder}//footage{random.randint(1,7)}.png")
+    
+    if footage_enable == "On":
 
-    # Получаем размеры футажа и фона
-    overlay_width, overlay_height = footage.size
-    background_width, background_height = result.size
+        footage = Image.open(f"{FOOTAGE_FOLDER}footage{random.randint(1,6)}.png")
 
-    # Выбираем случайное положение для вставки футажа
-    x_position = random.randint(0, overlay_width - background_width)
+        # Получаем размеры футажа и фона
+        overlay_width, overlay_height = footage.size
+        background_width, background_height = result.size
 
-    # Вырезаем фрагмент из футажа
-    crop_box = (x_position, 0, x_position + background_width, background_height)
-    overlay_fragment = footage.crop(crop_box)
+        # Выбираем случайное положение для вставки футажа
+        x_position = random.randint(0, overlay_width - background_width)
 
-    # Вставляем фрагмент футажа на фон
-    result.paste(overlay_fragment, (0,0), overlay_fragment)
-        
-    footage.close()
-    """
+        # Вырезаем фрагмент из футажа
+        crop_box = (x_position, 0, x_position + background_width, background_height)
+        overlay_fragment = footage.crop(crop_box)
+
+        # Вставляем фрагмент футажа на фон
+        result.paste(overlay_fragment, (0,0), overlay_fragment)
+            
+        footage.close()
+    
     return result
 
 def main():
