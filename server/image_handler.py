@@ -119,7 +119,9 @@ def combine(overlay_image, background_image, result_name, footage_enable):
     
     if footage_enable == "On":
 
-        footage = Image.open(f"{FOOTAGE_FOLDER}footage{random.randint(1,6)}.png")
+        images = os.listdir(FOOTAGE_FOLDER)
+
+        footage = Image.open(f"{FOOTAGE_FOLDER}//{random.choice(images)}")
 
         # Получаем размеры футажа и фона
         overlay_width, overlay_height = footage.size

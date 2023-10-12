@@ -93,6 +93,7 @@ async def get_photo(message, status):
     else:
         await message.answer("Бот временно остановлен администратором")
     
+#возвращаем True, если было действие с админ панелью    
 async def admin_panel(message):
 
     global ON_OFF
@@ -100,7 +101,8 @@ async def admin_panel(message):
 
     if admin(message.from_id):
         #добавление администратора
-        if "add" in message.text:
+        #если команда указана в начале
+        if "add" in message.text.split(" ", 1)[0]:
             admin_id = int(message.text.split(" ")[1])
             ADMINS.append(admin_id)
             await message.answer(f"Добавлен администратор с id: {admin_id}")
@@ -145,9 +147,31 @@ async def admin_panel(message):
             await message.answer("Футажи отключены!")
             return True
         
-        elif "sendall" in message.text:
+        elif message.text == "user amount":
+            
+            #принимаем массив кортежей из бд
             users = sql.get_all_users()
-            print()
+
+            await message.answer(f"Количество пользователей: {len(users)}")
+            return True
+        
+        #если команда указана в начале
+        elif "sendall" in message.text.split("\n", 1)[0]:
+            
+            #берем сообщение после команды sendall
+            mess = message.text.split("\n", 1)[1]
+            
+            #принимаем массив кортежей из бд
+            users = sql.get_all_users()
+            
+            for user in users:
+                try:
+                    await bot.send_message(user[0], mess)
+                except Exception as e:
+                    print(f"Ошибка рассылки юзеру: {e}")
+                    
+            return True
+            
         
     return False
 

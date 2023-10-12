@@ -5,7 +5,7 @@ OVERLAY_FOLDER_RM = "C:\\Users\\Dmitry\\Documents\\Git\\image_handler\\debug\\ov
 
 BACKGROUNDS_LIST = "C:\\Users\\Dmitry\\Documents\\Git\\image_handler\\debug\\backgrounds.txt"
 
-FOOTAGE_FOLDER = "C:\\Users\\Dmitry\\Documents\\Git\\image_handler\\debug"
+FOOTAGE_FOLDER = "C:\\Users\\Dmitry\\Documents\\Git\\image_handler\\debug\\footage"
 
 #тестбот
 API_TOKEN = '6588918438:AAEuWOePbDIWlDufBsnHTku9wj9oHlU5IrQ' 
@@ -29,8 +29,10 @@ HELP = ("stop - остановка бота\n"+
         "(текстовый документ) - добавление списка фонов\n"+
         "(группа фотографий) - изменение фото\n"+
         "/help - список функций админ-панели\n"+
-        "footage (on/off) - включение футажей"+
-        "/stats = статистика пролива")
+        "footage (on/off) - включение футажей\n"+
+        "/stats = статистика пролива\n"+
+        "sendall \n(с новой строчки сообщение для рассылки)\n"+
+        "user amount - количество пользователей")
 
 #база данных 
 DB = "bot users.db"

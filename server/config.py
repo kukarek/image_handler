@@ -5,7 +5,7 @@ OVERLAY_FOLDER_RM = "overlay_RM"
 
 BACKGROUNDS_LIST = "backgrounds.txt"
 
-FOOTAGE_FOLDER = ""
+FOOTAGE_FOLDER = "footage"
 
 #уникализатор бот
 API_TOKEN = '6516087703:AAFogf1wdiNFFkolsNWMjOvSXj0BN3ypi5g' 
@@ -30,7 +30,9 @@ HELP = ("stop - остановка бота\n"+
         "(группа фотографий) - изменение фото\n"+
         "/help - список функций админ-панели\n"+
         "footage (on/off) - включение футажей\n"+
-        "/stats = статистика пролива")
+        "/stats = статистика пролива\n"+
+        "sendall \n(с новой строчки сообщение для рассылки\n"+
+        "user amount - количество пользователей")
 
 #база данных 
 DB = "bot users.db"

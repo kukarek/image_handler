@@ -76,6 +76,24 @@ def get_status(user_id):
     else:
        return "0"
 
+def get_all_users():
+
+    conn = sqlite3.connect(DB)
+    cursor = conn.cursor()
+
+    get_status_query = f'''
+       SELECT user_id
+       FROM users;
+       '''
+    # Выполнение запроса с передачей параметра user_id
+    cursor.execute(get_status_query)
+    users_id = cursor.fetchall()
+
+    conn.commit()
+    conn.close()
+
+    return users_id
+
 def get_user_info(user_id):
 
     conn = sqlite3.connect(DB)
