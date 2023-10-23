@@ -7,6 +7,8 @@ BACKGROUNDS_LIST = "backgrounds.txt"
 
 FOOTAGE_FOLDER = "footage"
 
+COUNTRYES = ["FRANCE"]
+
 #уникализатор бот
 API_TOKEN = '6516087703:AAFogf1wdiNFFkolsNWMjOvSXj0BN3ypi5g' 
 

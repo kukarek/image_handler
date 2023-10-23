@@ -1,6 +1,6 @@
 import sql
 from aiogram import types
-
+from config import COUNTRYES
 
 
 def create_start_keyboard():
@@ -12,8 +12,8 @@ def create_start_keyboard():
     button3 = types.KeyboardButton("Румыния")
 
     keyboard.add(button1)
-    keyboard.add(button2)
-    keyboard.add(button3)
+    #keyboard.add(button2)
+    #keyboard.add(button3)
 
     return keyboard
 
@@ -44,19 +44,10 @@ def choose_country(user_id, message_text):
     if message_text == "Франция":
         sql.set_status(user_id=user_id, status="FRANCE")
         text = "Переключаю крео на Францию!"
-
-    elif message_text == "Испания":
-        sql.set_status(user_id=user_id, status="SPAIN")
-        text = "Переключаю крео на Испанию!"
-
-    elif message_text == "Румыния":
-        sql.set_status(user_id=user_id, status="ROMANIA")
-        text = "Переключаю крео на Румынию!"
-
+        return text, create_work_keyboard() 
     else:
         return "Выберите на клавиатуре", None
-
-    return text, create_work_keyboard() 
+    
 
 def work_status_handler(user_id, message_text):
 
@@ -68,8 +59,18 @@ def work_status_handler(user_id, message_text):
         return text, create_start_keyboard()
 
     elif message_text == "Получить фото":
-        #ничего не делаем
-        return None, None
+        
+        status = sql.get_status(user_id=user_id)[0]
+
+        for country in COUNTRYES:
+            if status == country:
+                return None, None
+
+        sql.set_status(user_id=user_id, status="start") 
+        text = ("Бим бим бам бам\n\n"+
+                "Что будем лить?")
+        return text, create_start_keyboard()
+
     
     else:
         text = "Чтобы изменить страну, перейдите в главное меню!"
@@ -89,7 +90,7 @@ def reply_message_handler(user_id, message_text):
     else:
         response, keyboard = work_status_handler(user_id=user_id,message_text=message_text)
 
-    return response, keyboard, status
+    return response, keyboard, sql.get_status(user_id=user_id)[0]
 
 
 
