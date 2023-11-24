@@ -1,16 +1,20 @@
 import logging
-from aiogram import types
 from aiogram.types import Message
 import time
+from aiogram import Dispatcher
 from database import sql
 from ..main import bot
-from ..keyboards.keyboards import admin_panel_keyboard
+from ..keyboards.keyboards import admin_panel_keyboard, edit_country_keyboard, config_keyboard
 from image_handler.config import handlers
 from image_handler.handlers.preview import Preview
 from image_handler.handlers.backgrounds import Backgrounds
 from image_handler.handlers.footage import Footage
-from misc.main_config import ADMINS, BACKGROUNDS_LIST, ON_OFF, COUNTRY
-
+from aiogram.dispatcher.filters import Text
+from ..filters.admin_status import *
+from ..filters.bot_status import *
+from .user_handlers import start_status_handler
+from misc.main_config import ADMINS, BACKGROUNDS_LIST, COUNTRY, AVAILABLE_COUNTRYES
+from ..filters.bot_status import ON_OFF
 
 async def count(message: Message):
     
@@ -30,7 +34,7 @@ async def stats(message: Message):
     
     await message.answer(text)
 
-async def add_backgrounds(message: types.Message):
+async def add_backgrounds(message: Message):
     
     try:
         
@@ -55,7 +59,7 @@ async def add_backgrounds(message: types.Message):
 
 async def help(message: Message):
 
-    await message.answer(f"{message.chat.first_name}, добро пожаловать в админ панель!", reply_markup = admin_panel_keyboard())            
+    await message.answer(f"{message.chat.first_name}, добро пожаловать в админ панель!", reply_markup = admin_panel_keyboard(message))            
 
 async def add_admin(message: Message):
     #добавление администратора
@@ -66,22 +70,24 @@ async def add_admin(message: Message):
         await message.answer(f"Добавлен администратор с id: {admin_id}")
 
 async def bot_stop(message: Message):
+    
     global ON_OFF
-    #остановка бота
-    if ON_OFF == "On":
-        ON_OFF = "Off"
-        await message.answer("Остановка бота", reply_markup=admin_panel_keyboard())
+
+    if ON_OFF.status() == "On":
+        ON_OFF.OFF()
+        await message.answer("Остановка бота", reply_markup=admin_panel_keyboard(message))
     else:
-        await message.answer("Бот уже остановлен", reply_markup=admin_panel_keyboard())
+        await message.answer("Бот уже остановлен", reply_markup=admin_panel_keyboard(message))
 
 async def bot_start(message: Message):
+    
     global ON_OFF
-    #запуск бота
-    if ON_OFF == "Off":
-        ON_OFF = "On"
-        await message.answer("Запуск бота", reply_markup=admin_panel_keyboard())
+
+    if ON_OFF.status() == "Off":
+        ON_OFF.ON()
+        await message.answer("Запуск бота", reply_markup=admin_panel_keyboard(message))
     else:
-        await message.answer("Бот уже запущен", reply_markup=admin_panel_keyboard())
+        await message.answer("Бот уже запущен", reply_markup=admin_panel_keyboard(message))
 
 async def bot_status(message: Message):
 
@@ -89,47 +95,73 @@ async def bot_status(message: Message):
 
 async def config(message: Message):
 
+    sql.set_admin_status(message.from_id, "editing config")
+
     config = "Текущая настройка:\n"
     for handler in handlers.get_handlers():
         config += f"{handler.key}\n"
 
-    await message.answer(config)
+    await message.answer(config, reply_markup=config_keyboard(message))
 
 async def footage_on(message: Message):
         
     handlers.append(Footage())
 
-    await message.answer("Футажи включены!", reply_markup=admin_panel_keyboard())
+    config = "Текущая настройка:\n"
+    for handler in handlers.get_handlers():
+        config += f"{handler.key}\n"
+
+    await message.answer(config, reply_markup=config_keyboard(message))
     
 async def footage_off(message: Message):
 
     handlers.remove(Footage())
         
-    await message.answer("Футажи выключены!", reply_markup=admin_panel_keyboard())
+    config = "Текущая настройка:\n"
+    for handler in handlers.get_handlers():
+        config += f"{handler.key}\n"
+
+    await message.answer(config, reply_markup=config_keyboard(message))
 
 async def background_on(message: Message):
         
-    handlers.append(Backgrounds())
+    handlers.append(Backgrounds())    
 
-    await message.answer("Фоны включены!", reply_markup=admin_panel_keyboard())
+    config = "Текущая настройка:\n"
+    for handler in handlers.get_handlers():
+        config += f"{handler.key}\n"
+
+    await message.answer(config, reply_markup=config_keyboard(message))
     
 async def background_off(message: Message):
 
     handlers.remove(Backgrounds())
         
-    await message.answer("Фоны выключены!", reply_markup=admin_panel_keyboard())
+    config = "Текущая настройка:\n"
+    for handler in handlers.get_handlers():
+        config += f"{handler.key}\n"
+
+    await message.answer(config, reply_markup=config_keyboard(message))
 
 async def preview_on(message: Message):
         
     handlers.append(Preview())
 
-    await message.answer("Превью включено!", reply_markup=admin_panel_keyboard())
+    config = "Текущая настройка:\n"
+    for handler in handlers.get_handlers():
+        config += f"{handler.key}\n"
+
+    await message.answer(config, reply_markup=config_keyboard(message))
     
 async def preview_off(message: Message):
 
     handlers.remove(Preview())
         
-    await message.answer("Превью выключено!", reply_markup=admin_panel_keyboard())
+    config = "Текущая настройка:\n"
+    for handler in handlers.get_handlers():
+        config += f"{handler.key}\n"
+
+    await message.answer(config, reply_markup=config_keyboard(message))
 
 async def user_amount(message: Message):
         
@@ -152,7 +184,8 @@ async def send_all(message: Message):
                 
 async def admin_panel(message: Message):
 
-    await message.answer(f"{message.chat.first_name}, добро пожаловать в админ панель!", reply_markup = admin_panel_keyboard())            
+    sql.set_admin_status(message.from_id, "0")
+    await message.answer(f"{message.chat.first_name}, добро пожаловать в админ панель!", reply_markup = admin_panel_keyboard(message))            
         
 async def adding_admin(message: Message):
 
@@ -170,13 +203,13 @@ async def added_admin(message: Message):
 
 async def creating_sending(message: Message):
 
-    sql.set_status(message.from_id, "creating sending")
+    sql.set_admin_status(message.from_id, "creating sending")
 
     await message.answer("Введите текст для рассылки:")
 
 async def created_sending(message: Message):
 
-    sql.set_status(message.from_id, "0")
+    sql.set_admin_status(message.from_id, "0")
 
     users = sql.get_all_users()
     
@@ -189,4 +222,73 @@ async def created_sending(message: Message):
 
     await message.answer("Рассылка создана!")
 
-        
+async def edit_country(message: Message):
+
+    sql.set_admin_status(message.from_id, "editing country")
+    await message.answer("Выберите на клавиатуре:", reply_markup=edit_country_keyboard(message))
+
+async def editing_country(message: Message):
+
+    task = message.text.split(" ")[0]
+    country = message.text.split(" ")[1]
+
+    if country in AVAILABLE_COUNTRYES():
+
+        if task == "Включить":
+
+            COUNTRY[country] = {
+                            "folder": f"image_handler/overlay_{country}",
+                            "strait": 0 }
+        else:
+            del COUNTRY[country]
+            
+        await message.answer("Изменения применены!", reply_markup=edit_country_keyboard(message))
+
+    else:
+        await message.answer("Выберите на клавиатуре:", reply_markup=edit_country_keyboard(message))
+
+async def edit_config(message: Message):
+
+    sql.set_admin_status(message.from_id, "editing config")
+    await message.answer("Выберите на клавиатуре:", reply_markup=config_keyboard(message))
+
+
+
+def register_admin_handlers(dp: Dispatcher):
+
+    dp.register_message_handler(start_status_handler, isAdmin(), Text(equals='Главное меню'))
+    dp.register_message_handler(admin_panel, isAdmin(), Text(equals='Админ панель'))
+    dp.register_message_handler(count, isAdmin(), Text(equals='Количество фонов'))
+    dp.register_message_handler(stats, isAdmin(), Text(equals='Статистика пролива'))
+    dp.register_message_handler(add_backgrounds, isAdmin(), content_types=[types.ContentType.DOCUMENT])
+    dp.register_message_handler(help, isAdmin(), commands=['help'])
+    dp.register_message_handler(user_amount, Text(equals="Количество пользователей") & isAdmin())
+
+    dp.register_message_handler(adding_admin, Text(equals="Добавить администратора") & isAdmin())
+    dp.register_message_handler(added_admin, isAdmin() & isAddingAdmin())
+    dp.register_message_handler(add_admin, Text(startswith="Добавить администратора") & isAdmin())
+
+    dp.register_message_handler(bot_stop, Text(equals="Остановить бота") & isAdmin())
+    dp.register_message_handler(bot_start, Text(equals="Запустить бота") & isAdmin())
+    dp.register_message_handler(bot_status, Text(equals="Статус бота") & isAdmin())
+
+    dp.register_message_handler(config, Text(equals="Конфиг") & isAdmin())
+    dp.register_message_handler(footage_on, Text(equals="Включить футажи") & isAdmin() & Editing_Config())
+    dp.register_message_handler(footage_off, Text(equals="Выключить футажи") & isAdmin() & Editing_Config())
+    dp.register_message_handler(background_on, Text(equals="Включить фон") & isAdmin() & Editing_Config())
+    dp.register_message_handler(background_off, Text(equals="Выключить фон") & isAdmin() & Editing_Config())
+    dp.register_message_handler(preview_on, Text(equals="Включить превью") & isAdmin() & Editing_Config())
+    dp.register_message_handler(preview_off, Text(equals="Выключить превью") & isAdmin() & Editing_Config())
+    dp.register_message_handler(admin_panel, Text(equals="Завершить") & isAdmin() & Editing_Config())
+
+    dp.register_message_handler(creating_sending, Text(equals="Рассылка") & isAdmin())
+    dp.register_message_handler(created_sending, isAdmin() & isCreatingSending())
+    dp.register_message_handler(send_all, Text(startswith="Рассылка") & isAdmin())
+
+    dp.register_message_handler(edit_country, Text(equals="Редактировать страны") & isAdmin())
+    dp.register_message_handler(editing_country, (Text(startswith="Включить") | Text(startswith="Выключить")) & isAdmin() & Editing_Country())
+    dp.register_message_handler(admin_panel, Text(equals="Завершить") & isAdmin() & Editing_Country())
+
+    dp.register_message_handler(edit_country, Text(equals="Редактировать фото") & isAdmin())
+    dp.register_message_handler(editing_country, (Text(startswith="Включить") | Text(startswith="Выключить")) & isAdmin() & Editing_Country())
+    dp.register_message_handler(admin_panel, Text(equals="Завершить") & isAdmin() & Editing_Country())

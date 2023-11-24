@@ -21,7 +21,7 @@ def get_overlay(overlay_folder):
  
     overlays = []
 
-    for filename in os.listdir(overlay_folder):
+    for filename in sorted(os.listdir(overlay_folder)):
         # Проверяем, что файл имеет расширение изображения (например, .jpg или .png)
         if filename.endswith((".jpg", ".png")):
             # Формируем полный путь к файлу

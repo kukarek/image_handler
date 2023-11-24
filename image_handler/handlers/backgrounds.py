@@ -11,6 +11,7 @@ class Backgrounds(Handler):
 
     key = "Backgrounds"
 
+
     def run(self, images: list[Image.Image]) -> list[Image.Image]:
         
         #получение рандомной ссылки на фото из списка ссылок фонов
@@ -19,7 +20,10 @@ class Backgrounds(Handler):
             links = [line.strip() for line in file]
 
         random_link1 = random.choice(links)
+        links.remove(random_link1)
+
         random_link2 = random.choice(links)
+        links.remove(random_link2)
 
         #запрос на получение картинки
         response1 = requests.get(random_link1)
@@ -33,19 +37,22 @@ class Backgrounds(Handler):
         i = 1
 
         for overlay in images:
-            if i % 2 == 0:
+
+            if i % 2 == 0: 
                 image = self.__combine(overlay_image=overlay, background_image=background1)
             else:
                 image = self.__combine(overlay_image=overlay, background_image=background2)
             i = i + 1
             result_images.append(image)
+            print(images.index(overlay))
 
         background1.close()
         background2.close()
 
-        # Удалите выбранный элемент из массива ссылок
-        links.remove(random_link1)
-        links.remove(random_link2)
+        # Перезаписываем файл, удаляя использованные ссылки
+        with open(BACKGROUNDS_LIST, 'w') as file:
+            for link in links:
+                file.write(link + '\n')
 
         return result_images
 
@@ -70,7 +77,6 @@ class Backgrounds(Handler):
         background_width, background_height = background_image.size
         overlay_width, overlay_height = overlay_image.size
 
-        # Рассчитываем новые размеры наложения, чтобы оно соответствовало разрешению 1080x1920
         new_overlay_width = 900
         new_overlay_height = int(overlay_height * (new_overlay_width / overlay_width))
 

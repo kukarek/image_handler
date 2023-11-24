@@ -4,11 +4,9 @@ from image_handler.handlers.footage import Footage
 from .handlers.handler import Handler
 
 
-
 class Handlers:
 
     __handlers: list[Handler] = [
-        Preview(),
         Backgrounds()
     ]
 
@@ -41,3 +39,4 @@ class Handlers:
                 self.__handlers.remove(obj)
 
 handlers = Handlers()
+

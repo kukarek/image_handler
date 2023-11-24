@@ -1,12 +1,12 @@
 import logging
 from database import sql
 from aiogram import Bot, Dispatcher, executor
-from misc.main_config import API_TOKEN
+from misc.main_config import API_TOKEN_TEST
 
 # Установка уровня логирования
 logging.basicConfig(level=logging.INFO)
 
-bot = Bot(token=API_TOKEN)
+bot = Bot(token=API_TOKEN_TEST)
 dp = Dispatcher(bot)
 
 from .handlers import register_all_handlers

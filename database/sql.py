@@ -19,6 +19,23 @@ def set_status(user_id, status):
     conn.commit()
     conn.close()
 
+def set_admin_status(user_id, status):
+   
+    conn = sqlite3.connect(DB)
+    cursor = conn.cursor()
+    # Запрос для обновления статуса по user_id
+    query = f'''
+    UPDATE users
+    SET admin_status = ?
+    WHERE user_id = ?;
+    '''
+    # Выполнение запроса с передачей параметров new_status и user_id
+    cursor.execute(query, (status, user_id))
+    # Сохранение изменений и закрытие подключения к базе данных
+                
+    conn.commit()
+    conn.close()
+
 def set_country(user_id, country):
    
     conn = sqlite3.connect(DB)
@@ -34,7 +51,6 @@ def set_country(user_id, country):
                 
     conn.commit()
     conn.close()
-
 
 def add_user(user_id):
     
@@ -73,7 +89,6 @@ def add_user(user_id):
     conn.commit()
     conn.close()
 
-
 def get_status(user_id):
 
     conn = sqlite3.connect(DB)
@@ -105,6 +120,47 @@ def get_status(user_id):
        '''
        # Выполнение запроса с передачей параметра user_id
        cursor.execute(get_status_query, (user_id,))
+       status = cursor.fetchone()
+
+       conn.commit()
+       conn.close()
+
+       return status
+    
+    else:
+       return "0"
+    
+def get_admin_status(user_id):
+
+    conn = sqlite3.connect(DB)
+    cursor = conn.cursor()
+
+    # Запрос для проверки наличия записи с заданным user_id
+    check_user_query = f'''
+    SELECT EXISTS (
+        SELECT 1
+        FROM users
+        WHERE user_id = ?
+        LIMIT 1
+    );
+    '''
+    # Выполнение запроса с передачей параметра user_id
+    cursor.execute(check_user_query, (user_id,))
+    result = cursor.fetchone()[0]
+    conn.commit()
+    conn.close()
+    
+    if result == 1:
+       conn = sqlite3.connect(DB)
+       cursor = conn.cursor()
+       # Запрос для получения статуса по user_id
+       query = f'''
+       SELECT admin_status
+       FROM users
+       WHERE user_id = ?;
+       '''
+       # Выполнение запроса с передачей параметра user_id
+       cursor.execute(query, (user_id,))
        status = cursor.fetchone()
 
        conn.commit()
@@ -218,12 +274,13 @@ def get_user_info(user_id):
 #созданию соединения (не используется в коде)
 def create_connection():
     
+    
     connection = sqlite3.connect(DB)
     cursor = connection.cursor()
 
     # Создаем таблицу для хранения подписок пользователей, если она не существует
     cursor.execute('''CREATE TABLE IF NOT EXISTS users
-                      (user_id INTEGER PRIMARY KEY, status TEXT, country TEXT)''')
+                      (user_id INTEGER PRIMARY KEY, status TEXT, country TEXT, admin_status TEXT)''')
 
     connection.commit()
     connection.close()
