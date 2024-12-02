@@ -9,7 +9,7 @@ from image_handler.handlers.preview import Preview
 from image_handler.handlers.backgrounds import Backgrounds
 from image_handler.handlers.footage import Footage
 from misc.main_config import ADMINS, BACKGROUNDS_LIST, COUNTRY
-from ..filters.bot_status import ON_OFF
+from misc.toggle import Toggle
 from .user_handlers import start_status_handler
 from image_handler.config import AVAILABLE_COUNTRYES
 from image_handler.handlers import backgrounds
@@ -83,11 +83,9 @@ async def bot_stop(message: types.Message):
     
     log.debug(f"Пользователь {message.from_user.id} остановил бота")
 
-    global ON_OFF
+    if Toggle.status() == "On":
 
-    if ON_OFF.status() == "On":
-
-        ON_OFF.OFF()
+        Toggle.turn_off()
         await message.answer("Остановка бота", reply_markup = admin_panel_keyboard(message))
 
     else:
@@ -97,11 +95,9 @@ async def bot_start(message: types.Message):
     
     log.debug(f"Пользователь {message.from_user.id} запустил бота")
 
-    global ON_OFF
+    if Toggle.status() == "Off":
 
-    if ON_OFF.status() == "Off":
-
-        ON_OFF.ON()
+        Toggle.turn_on()
         await message.answer("Запуск бота", reply_markup = admin_panel_keyboard(message))
 
     else:
@@ -111,7 +107,7 @@ async def bot_status(message: types.Message):
 
     log.debug(f"Пользователь {message.from_user.id} запросил статус бота")
 
-    await message.answer(ON_OFF)
+    await message.answer(Toggle.status())
 
 async def config(message: types.Message):
 
@@ -322,7 +318,7 @@ async def edit_config(message: types.Message):
     await message.answer("Выберите на клавиатуре:", reply_markup=config_keyboard(message))
 
 
-
+#регистрация обработчиков в диспетчере
 def register_admin_handlers(dp: Dispatcher):
     
     dp.message.register(start_status_handler, isAdmin(), (F.text == 'Главное меню'))

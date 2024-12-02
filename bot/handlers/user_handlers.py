@@ -8,7 +8,8 @@ from ..keyboards import create_start_keyboard, create_work_keyboard
 from image_handler import image_handler
 from image_handler.handlers.backgrounds import img_gen
 from misc.main_config import COUNTRY
-from ..filters.bot_status import THREADS, botDisable, botEnable, Huge_Pressure, Incorrect_Country
+from misc.threadmanager import ThreadManager
+from ..filters.bot_status import botDisable, botEnable, Huge_Pressure, Incorrect_Country
 from ..filters.admin_status import isAdmin
 from ..filters.user_status import IsUser, UserIsWork, UserIsStart, UserIsNone
 from log.logger import log
@@ -43,7 +44,7 @@ async def work_status_handler(message: Message):
     COUNTRY[country]["strait"] += 1
     images = image_handler.conversion(country=country)
 
-    THREADS.add()
+    ThreadManager.add_thread()
 
 
     media = MediaGroupBuilder()
@@ -58,7 +59,7 @@ async def work_status_handler(message: Message):
         
         media.add_photo(media = BufferedInputFile(file = file_io.getvalue(), filename = filename))
     
-    THREADS.pop()
+    ThreadManager.remove_thread()
 
     await message.answer_media_group(media.build())
 

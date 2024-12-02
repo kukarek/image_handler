@@ -911,3 +911,248 @@ Sleep for 2.770490 seconds and try again... (tryings = 4, bot id = 6588918438)
 2024-12-01 23:26:08,614 - DEBUG - Пользователь 1020541698 получает фон
 2024-12-01 23:26:08,908 - DEBUG - Получение изображения: https://sun9-51.userapi.com/impg/OynDOq09KjBHlSBgKVcoeLodrk6OQLlJXSl18Q/P5gpVa1vRKo.jpg?size=1920x1080&quality=96&sign=5c60c20cc531aec07e8575cf4c82bfcd&type=album
 2024-12-01 23:26:13,995 - DEBUG - Пользователь 1020541698 запросил количество фонов
+2024-12-02 15:43:19,874 - INFO - --Логирование настроено--
+2024-12-02 15:43:19,902 - INFO - --Обработчики зарегистрированы--
+2024-12-02 15:43:19,904 - INFO - --База данных подключена--
+2024-12-02 15:43:20,607 - INFO - --Список фонов обновлен--
+2024-12-02 15:43:20,607 - INFO - --запуск бота--
+2024-12-02 15:43:25,133 - DEBUG - Пользователь 1020541698 запустил бота
+2024-12-02 15:43:32,021 - DEBUG - Пользователь 1020541698 выбирает страну Админ панеьл для ворка
+2024-12-02 15:43:35,396 - DEBUG - Пользователь 1020541698 зашел в админ панель
+2024-12-02 15:43:35,397 - INFO - Получение статуса бота.
+2024-12-02 15:43:46,780 - DEBUG - Пользователь 1020541698 остановил бота
+2024-12-02 15:43:46,780 - INFO - Получение статуса бота.
+2024-12-02 15:43:46,780 - INFO - Получение статуса бота.
+2024-12-02 15:43:48,781 - DEBUG - Пользователь 1020541698 остановил бота
+2024-12-02 15:43:48,781 - INFO - Получение статуса бота.
+2024-12-02 15:43:48,782 - INFO - Получение статуса бота.
+2024-12-02 15:45:16,363 - INFO - --Логирование настроено--
+2024-12-02 15:45:16,377 - INFO - --Обработчики зарегистрированы--
+2024-12-02 15:45:16,378 - INFO - --База данных подключена--
+2024-12-02 15:45:16,423 - INFO - --Список фонов обновлен--
+2024-12-02 15:45:16,423 - INFO - --запуск бота--
+2024-12-02 15:45:20,285 - DEBUG - Пользователь 1020541698 зашел в админ панель
+2024-12-02 15:45:20,286 - INFO - Получение статуса бота.
+2024-12-02 15:47:08,696 - INFO - --Логирование настроено--
+2024-12-02 15:47:08,710 - INFO - --Обработчики зарегистрированы--
+2024-12-02 15:47:08,711 - INFO - --База данных подключена--
+2024-12-02 15:47:08,756 - INFO - --Список фонов обновлен--
+2024-12-02 15:47:08,756 - INFO - --запуск бота--
+2024-12-02 15:47:10,950 - DEBUG - Пользователь 1020541698 зашел в админ панель
+Cause exception while process update id=328972492 by bot id=6588918438
+AttributeError: type object 'Toggle' has no attribute 'status'
+Traceback (most recent call last):
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\dispatcher.py", line 309, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\dispatcher.py", line 158, in feed_update
+    response = await self.update.wrap_outer_middleware(
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\middlewares\error.py", line 25, in __call__
+    return await handler(event, data)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\middlewares\user_context.py", line 56, in __call__
+    return await handler(event, data)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\fsm\middleware.py", line 42, in __call__
+    return await handler(event, data)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\event\telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\dispatcher.py", line 276, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\router.py", line 146, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\router.py", line 141, in _wrapped
+    return await self._propagate_event(
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\router.py", line 166, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\event\telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+  File "C:\Users\Dmitry\Documents\Git\image_handler\bot\handlers\admin_handlers.py", line 243, in admin_panel
+    await message.answer(f"{message.chat.first_name}, ����� ���������� � ����� ������!", reply_markup = admin_panel_keyboard(message))
+  File "C:\Users\Dmitry\Documents\Git\image_handler\bot\keyboards\keyboards.py", line 35, in admin_panel_keyboard
+    a = Toggle.status()
+AttributeError: type object 'Toggle' has no attribute 'status'
+2024-12-02 15:47:16,428 - DEBUG - Пользователь 1020541698 зашел в админ панель
+Cause exception while process update id=328972493 by bot id=6588918438
+AttributeError: type object 'Toggle' has no attribute 'status'
+Traceback (most recent call last):
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\dispatcher.py", line 309, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\dispatcher.py", line 158, in feed_update
+    response = await self.update.wrap_outer_middleware(
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\middlewares\error.py", line 25, in __call__
+    return await handler(event, data)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\middlewares\user_context.py", line 56, in __call__
+    return await handler(event, data)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\fsm\middleware.py", line 42, in __call__
+    return await handler(event, data)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\event\telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\dispatcher.py", line 276, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\router.py", line 146, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\router.py", line 141, in _wrapped
+    return await self._propagate_event(
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\router.py", line 166, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\event\telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+  File "C:\Users\Dmitry\Documents\Git\image_handler\bot\handlers\admin_handlers.py", line 243, in admin_panel
+    await message.answer(f"{message.chat.first_name}, ����� ���������� � ����� ������!", reply_markup = admin_panel_keyboard(message))
+  File "C:\Users\Dmitry\Documents\Git\image_handler\bot\keyboards\keyboards.py", line 35, in admin_panel_keyboard
+    a = Toggle.status()
+AttributeError: type object 'Toggle' has no attribute 'status'
+2024-12-02 15:47:25,103 - DEBUG - Пользователь 1020541698 запустил бота
+2024-12-02 15:47:29,226 - DEBUG - Пользователь 1020541698 зашел в админ панель
+Cause exception while process update id=328972495 by bot id=6588918438
+AttributeError: type object 'Toggle' has no attribute 'status'
+Traceback (most recent call last):
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\dispatcher.py", line 309, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\dispatcher.py", line 158, in feed_update
+    response = await self.update.wrap_outer_middleware(
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\middlewares\error.py", line 25, in __call__
+    return await handler(event, data)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\middlewares\user_context.py", line 56, in __call__
+    return await handler(event, data)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\fsm\middleware.py", line 42, in __call__
+    return await handler(event, data)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\event\telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\dispatcher.py", line 276, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\router.py", line 146, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\router.py", line 141, in _wrapped
+    return await self._propagate_event(
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\router.py", line 166, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\event\telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+  File "C:\Users\Dmitry\Documents\Git\image_handler\bot\handlers\admin_handlers.py", line 243, in admin_panel
+    await message.answer(f"{message.chat.first_name}, ����� ���������� � ����� ������!", reply_markup = admin_panel_keyboard(message))
+  File "C:\Users\Dmitry\Documents\Git\image_handler\bot\keyboards\keyboards.py", line 35, in admin_panel_keyboard
+    a = Toggle.status()
+AttributeError: type object 'Toggle' has no attribute 'status'
+2024-12-02 15:47:41,570 - DEBUG - Пользователь 1020541698 выбирает страну test для ворка
+2024-12-02 15:48:20,541 - INFO - --Логирование настроено--
+2024-12-02 15:48:20,555 - INFO - --Обработчики зарегистрированы--
+2024-12-02 15:48:20,556 - INFO - --База данных подключена--
+2024-12-02 15:48:20,601 - INFO - --Список фонов обновлен--
+2024-12-02 15:48:20,601 - INFO - --запуск бота--
+2024-12-02 15:48:41,530 - DEBUG - Пользователь 1020541698 запустил бота
+2024-12-02 15:48:43,026 - DEBUG - Пользователь 1020541698 выбирает страну test для ворка
+2024-12-02 15:48:45,225 - DEBUG - Пользователь 1020541698 получает фон
+2024-12-02 15:48:45,627 - DEBUG - Получение изображения: https://sun9-66.userapi.com/impg/4DE0Taa0ioLqdxGQsCke98htv-_33KvFGqVDig/OXBIaw1A02M.jpg?size=1920x1080&quality=96&sign=797042761d2b9a351b7d4e667a16353b&type=album
+2024-12-02 15:48:58,286 - DEBUG - Пользователь 1020541698 зашел в админ панель
+2024-12-02 15:48:58,287 - INFO - Получение статуса бота.
+2024-12-02 15:49:59,756 - INFO - Получение статуса бота.
+2024-12-02 15:50:36,684 - INFO - --Логирование настроено--
+2024-12-02 15:50:36,698 - INFO - --Обработчики зарегистрированы--
+2024-12-02 15:50:36,699 - INFO - --База данных подключена--
+2024-12-02 15:50:36,759 - INFO - --Список фонов обновлен--
+2024-12-02 15:50:36,759 - INFO - --запуск бота--
+2024-12-02 15:50:37,081 - DEBUG - Пользователь 1020541698 запустил бота
+2024-12-02 15:50:37,240 - DEBUG - Пользователь 1020541698 зашел в админ панель
+2024-12-02 15:50:37,242 - INFO - Получение статуса бота.
+2024-12-02 15:50:51,823 - DEBUG - Пользователь 1020541698 зашел в админ панель
+2024-12-02 15:50:51,823 - INFO - Получение статуса бота.
+2024-12-02 15:52:33,135 - INFO - --Логирование настроено--
+2024-12-02 15:52:33,149 - INFO - --Обработчики зарегистрированы--
+2024-12-02 15:52:33,150 - INFO - --База данных подключена--
+2024-12-02 15:52:33,203 - INFO - --Список фонов обновлен--
+2024-12-02 15:52:33,203 - INFO - --запуск бота--
+2024-12-02 15:52:53,708 - DEBUG - Пользователь 1020541698 зашел в админ панель
+2024-12-02 15:52:57,250 - DEBUG - Пользователь 1020541698 запустил бота
+Cause exception while process update id=328972505 by bot id=6588918438
+TypeError: 'str' object is not callable
+Traceback (most recent call last):
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\dispatcher.py", line 309, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\dispatcher.py", line 158, in feed_update
+    response = await self.update.wrap_outer_middleware(
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\middlewares\error.py", line 25, in __call__
+    return await handler(event, data)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\middlewares\user_context.py", line 56, in __call__
+    return await handler(event, data)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\fsm\middleware.py", line 42, in __call__
+    return await handler(event, data)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\event\telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\dispatcher.py", line 276, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\router.py", line 146, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\router.py", line 141, in _wrapped
+    return await self._propagate_event(
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\router.py", line 166, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\event\telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+  File "c:\Users\Dmitry\Documents\Git\image_handler\bot\handlers\admin_handlers.py", line 102, in bot_start
+    if Toggle._status() == "Off":
+TypeError: 'str' object is not callable
+2024-12-02 15:53:08,840 - DEBUG - Пользователь 1020541698 запросил количество фонов
+2024-12-02 15:53:10,282 - DEBUG - Пользователь 1020541698 запустил бота
+Cause exception while process update id=328972507 by bot id=6588918438
+TypeError: 'str' object is not callable
+Traceback (most recent call last):
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\dispatcher.py", line 309, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\dispatcher.py", line 158, in feed_update
+    response = await self.update.wrap_outer_middleware(
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\middlewares\error.py", line 25, in __call__
+    return await handler(event, data)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\middlewares\user_context.py", line 56, in __call__
+    return await handler(event, data)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\fsm\middleware.py", line 42, in __call__
+    return await handler(event, data)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\event\telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\dispatcher.py", line 276, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\router.py", line 146, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\router.py", line 141, in _wrapped
+    return await self._propagate_event(
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\router.py", line 166, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\event\telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+  File "c:\Users\Dmitry\Documents\Git\image_handler\bot\handlers\admin_handlers.py", line 102, in bot_start
+    if Toggle._status() == "Off":
+TypeError: 'str' object is not callable
+2024-12-02 15:55:05,219 - INFO - --Логирование настроено--
+2024-12-02 15:55:05,234 - INFO - --Обработчики зарегистрированы--
+2024-12-02 15:55:05,235 - INFO - --База данных подключена--
+2024-12-02 15:55:05,282 - INFO - --Список фонов обновлен--
+2024-12-02 15:55:05,283 - INFO - --запуск бота--
+2024-12-02 15:55:16,669 - DEBUG - Пользователь 1020541698 запустил бота
+2024-12-02 15:55:16,669 - INFO - Получение статуса бота.
+2024-12-02 15:55:16,669 - INFO - Состояние переключено на 'On'.
+2024-12-02 15:55:20,690 - DEBUG - Пользователь 1020541698 остановил бота
+2024-12-02 15:55:20,690 - INFO - Получение статуса бота.
+2024-12-02 15:55:20,690 - INFO - Состояние переключено на 'Off'.
+2024-12-02 15:55:38,878 - DEBUG - Пользователь 1020541698 запросил текущую настройку обработчиков
+2024-12-02 15:55:40,877 - DEBUG - Пользователь 1020541698 зашел в админ панель
+2024-12-02 15:55:43,453 - DEBUG - Пользователь 1020541698 запустил бота
+2024-12-02 15:56:04,358 - DEBUG - Пользователь 1020541698 запросил статус бота
+2024-12-02 15:56:04,358 - INFO - Получение статуса бота.

@@ -1,5 +1,3 @@
-
-
 COUNTRY = {
     "test": {
         "folder": "image_handler/overlay_test",
@@ -7,7 +5,7 @@ COUNTRY = {
         "video_folder": "video_handler/video_test"}
 }
 
-BACKGROUNDS_LIST = "image_handler/backgrounds.txt"
+BACKGROUNDS_LIST = "orm/database/backgrounds.txt"
 
 PREVIEW_FOLDER = "image_handler/preview"
 FOOTAGE_FOLDER = "image_handler/footage"
