@@ -3,7 +3,7 @@ import os
 from .config import handlers
 from misc.main_config import COUNTRY
 
-def conversion(country):
+def conversion(country) -> list[Image.Image]:
 
     #выбор страны
     overlay_folder = COUNTRY[country]["folder"]

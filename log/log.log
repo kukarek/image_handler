@@ -1,0 +1,913 @@
+2024-11-30 20:09:33,029 - INFO - --Обработчики зарегистрированы--
+2024-11-30 20:09:33,030 - INFO - --База данных подключена--
+2024-11-30 20:09:33,030 - INFO - --Логирование настроено--
+2024-11-30 20:09:33,030 - INFO - запуск бота
+Start polling
+Run polling for bot @wallseytestbot id=6588918438 - 'test'
+2024-11-30 20:33:59,355 - INFO - --Обработчики зарегистрированы--
+2024-11-30 20:33:59,355 - INFO - --База данных подключена--
+2024-11-30 20:33:59,355 - INFO - --Логирование настроено--
+2024-11-30 20:33:59,356 - INFO - запуск бота
+Start polling
+Run polling for bot @wallseytestbot id=6588918438 - 'test'
+2024-11-30 20:36:12,898 - DEBUG - Пользователь 1020541698 выбирает страну для ворка
+Update id=328972326 is handled. Duration 375 ms by bot id=6588918438
+2024-11-30 20:36:34,654 - DEBUG - Пользователь 1020541698 получает фон
+Update id=328972327 is not handled. Duration 16 ms by bot id=6588918438
+Cause exception while process update id=328972327 by bot id=6588918438
+AttributeError: type object 'Backgrounds' has no attribute 'img_gen'
+Traceback (most recent call last):
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\dispatcher.py", line 309, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\dispatcher.py", line 158, in feed_update
+    response = await self.update.wrap_outer_middleware(
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\middlewares\error.py", line 25, in __call__
+    return await handler(event, data)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\middlewares\user_context.py", line 56, in __call__
+    return await handler(event, data)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\fsm\middleware.py", line 42, in __call__
+    return await handler(event, data)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\event\telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\dispatcher.py", line 276, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\router.py", line 146, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\router.py", line 141, in _wrapped
+    return await self._propagate_event(
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\router.py", line 166, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\event\telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+  File "c:\Users\Dmitry\Documents\Git\image_handler\bot\handlers\user_handlers.py", line 33, in get_background
+    next(Backgrounds.img_gen).save(file_io, format='PNG')
+AttributeError: type object 'Backgrounds' has no attribute 'img_gen'
+2024-11-30 20:37:43,299 - INFO - --Обработчики зарегистрированы--
+2024-11-30 20:37:43,300 - INFO - --База данных подключена--
+2024-11-30 20:37:43,300 - INFO - --Логирование настроено--
+2024-11-30 20:37:43,301 - INFO - запуск бота
+Start polling
+Run polling for bot @wallseytestbot id=6588918438 - 'test'
+2024-11-30 20:37:56,742 - DEBUG - Пользователь 1020541698 получает фон
+Update id=328972328 is handled. Duration 1952 ms by bot id=6588918438
+2024-11-30 20:38:00,498 - DEBUG - Пользователь 1020541698 получает фон
+Update id=328972329 is handled. Duration 1234 ms by bot id=6588918438
+2024-11-30 20:38:05,097 - DEBUG - Пользователь 1020541698 получает фон
+Update id=328972330 is handled. Duration 1343 ms by bot id=6588918438
+2024-11-30 20:39:58,023 - INFO - --Обработчики зарегистрированы--
+2024-11-30 20:39:58,039 - INFO - --База данных подключена--
+2024-11-30 20:39:58,040 - INFO - --Логирование настроено--
+2024-11-30 20:39:58,040 - INFO - запуск бота
+Start polling
+Run polling for bot @wallseytestbot id=6588918438 - 'test'
+2024-11-30 20:40:02,071 - DEBUG - Пользователь 1020541698 получает фон
+2024-11-30 20:40:02,345 - DEBUG - Получение изображения: https://sun9-30.userapi.com/impg/8th2jBKraNq0Mw_kY5itf8zv0DePuaPFBTrm2Q/KjG3hIWQ-9k.jpg?size=1920x1080&quality=96&sign=b44abb0b99ccd817f5a40ade6c884012&type=album
+Update id=328972331 is handled. Duration 1938 ms by bot id=6588918438
+2024-11-30 20:40:21,820 - DEBUG - Пользователь 1020541698 получает фон
+2024-11-30 20:40:22,100 - DEBUG - Получение изображения: https://sun9-23.userapi.com/impg/aQ6XMCTRJazzZo8WfKBc2F9WthBMHcvDkwvlEQ/uR8GZfxX9pw.jpg?size=1920x1080&quality=96&sign=ae547c245ca8b539300a36e24ad73275&type=album
+Update id=328972332 is handled. Duration 1734 ms by bot id=6588918438
+2024-11-30 20:40:26,542 - DEBUG - Пользователь 1020541698 запустил бота
+Update id=328972333 is handled. Duration 156 ms by bot id=6588918438
+2024-11-30 20:40:32,587 - DEBUG - Пользователь 1020541698 выбирает страну test для ворка
+Update id=328972334 is handled. Duration 218 ms by bot id=6588918438
+Update id=328972335 is handled. Duration 140 ms by bot id=6588918438
+Update id=328972336 is handled. Duration 93 ms by bot id=6588918438
+Update id=328972337 is handled. Duration 186 ms by bot id=6588918438
+2024-11-30 20:51:38,787 - INFO - --Обработчики зарегистрированы--
+2024-11-30 20:51:38,788 - INFO - --База данных подключена--
+2024-11-30 20:51:38,788 - INFO - --Логирование настроено--
+2024-11-30 20:51:38,788 - INFO - запуск бота
+Start polling
+Run polling for bot @wallseytestbot id=6588918438 - 'test'
+2024-11-30 21:51:54,410 - INFO - --Обработчики зарегистрированы--
+2024-11-30 21:51:54,411 - INFO - --База данных подключена--
+2024-11-30 21:51:54,411 - INFO - --Логирование настроено--
+2024-11-30 21:51:54,411 - INFO - запуск бота
+Start polling
+Run polling for bot @wallseytestbot id=6588918438 - 'test'
+2024-11-30 21:52:02,144 - DEBUG - Пользователь 1020541698 запустил бота
+Update id=328972338 is not handled. Duration 0 ms by bot id=6588918438
+Cause exception while process update id=328972338 by bot id=6588918438
+AttributeError: type object 'User' has no attribute 'add_user'
+Traceback (most recent call last):
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\dispatcher.py", line 309, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\dispatcher.py", line 158, in feed_update
+    response = await self.update.wrap_outer_middleware(
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\middlewares\error.py", line 25, in __call__
+    return await handler(event, data)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\middlewares\user_context.py", line 56, in __call__
+    return await handler(event, data)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\fsm\middleware.py", line 42, in __call__
+    return await handler(event, data)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\event\telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\dispatcher.py", line 276, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\router.py", line 146, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\router.py", line 141, in _wrapped
+    return await self._propagate_event(
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\router.py", line 166, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\event\telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+  File "c:\Users\Dmitry\Documents\Git\image_handler\bot\handlers\user_handlers.py", line 20, in start_status_handler
+    User.add_user(message.from_user.id)
+AttributeError: type object 'User' has no attribute 'add_user'
+2024-11-30 21:52:42,473 - INFO - --Обработчики зарегистрированы--
+2024-11-30 21:52:42,473 - INFO - --База данных подключена--
+2024-11-30 21:52:42,474 - INFO - --Логирование настроено--
+2024-11-30 21:52:42,474 - INFO - запуск бота
+Start polling
+Run polling for bot @wallseytestbot id=6588918438 - 'test'
+2024-11-30 21:52:44,871 - DEBUG - Пользователь 1020541698 запустил бота
+Update id=328972339 is handled. Duration 389 ms by bot id=6588918438
+2024-11-30 21:52:50,898 - DEBUG - Пользователь 1020541698 запустил бота
+Update id=328972340 is handled. Duration 250 ms by bot id=6588918438
+2024-11-30 21:52:57,325 - DEBUG - Пользователь 1020541698 запустил бота
+Update id=328972341 is handled. Duration 77 ms by bot id=6588918438
+2024-11-30 21:53:06,588 - DEBUG - Пользователь 1020541698 запустил бота
+Update id=328972342 is handled. Duration 172 ms by bot id=6588918438
+2024-11-30 21:53:22,547 - DEBUG - Пользователь 1020541698 запустил бота
+Update id=328972343 is handled. Duration 312 ms by bot id=6588918438
+2024-11-30 21:54:44,864 - DEBUG - Пользователь 1020541698 запустил бота
+Update id=328972344 is handled. Duration 37125 ms by bot id=6588918438
+2024-11-30 21:55:54,298 - INFO - --Обработчики зарегистрированы--
+2024-11-30 21:55:54,299 - INFO - --База данных подключена--
+2024-11-30 21:55:54,299 - INFO - --Логирование настроено--
+2024-11-30 21:55:54,300 - INFO - запуск бота
+Start polling
+Run polling for bot @wallseytestbot id=6588918438 - 'test'
+2024-11-30 21:56:01,893 - DEBUG - Пользователь 1020541698 запустил бота
+2024-11-30 21:56:48,273 - INFO - --Обработчики зарегистрированы--
+2024-11-30 21:56:48,274 - INFO - --База данных подключена--
+2024-11-30 21:56:48,274 - INFO - --Логирование настроено--
+2024-11-30 21:56:48,274 - INFO - запуск бота
+Start polling
+Run polling for bot @wallseytestbot id=6588918438 - 'test'
+2024-11-30 21:56:58,737 - DEBUG - Пользователь 1020541698 запустил бота
+2024-11-30 21:58:10,264 - INFO - --Обработчики зарегистрированы--
+2024-11-30 21:58:10,265 - INFO - --База данных подключена--
+2024-11-30 21:58:10,265 - INFO - --Логирование настроено--
+2024-11-30 21:58:10,266 - INFO - запуск бота
+Start polling
+Run polling for bot @wallseytestbot id=6588918438 - 'test'
+2024-11-30 21:58:18,389 - DEBUG - Пользователь 1020541698 запустил бота
+2024-11-30 21:59:06,343 - INFO - --Обработчики зарегистрированы--
+2024-11-30 21:59:06,357 - INFO - --База данных подключена--
+2024-11-30 21:59:06,358 - INFO - --Логирование настроено--
+2024-11-30 21:59:06,359 - INFO - запуск бота
+Start polling
+Run polling for bot @wallseytestbot id=6588918438 - 'test'
+2024-11-30 21:59:24,480 - DEBUG - Пользователь 1020541698 запустил бота
+2024-11-30 22:00:58,059 - INFO - --Обработчики зарегистрированы--
+2024-11-30 22:00:58,060 - INFO - --База данных подключена--
+2024-11-30 22:00:58,060 - INFO - --Логирование настроено--
+2024-11-30 22:00:58,061 - INFO - запуск бота
+Start polling
+Run polling for bot @wallseytestbot id=6588918438 - 'test'
+2024-11-30 22:01:03,031 - DEBUG - Пользователь 1020541698 запустил бота
+2024-11-30 22:01:52,302 - INFO - --Обработчики зарегистрированы--
+2024-11-30 22:01:52,302 - INFO - --База данных подключена--
+2024-11-30 22:01:52,303 - INFO - --Логирование настроено--
+2024-11-30 22:01:52,303 - INFO - запуск бота
+Start polling
+Run polling for bot @wallseytestbot id=6588918438 - 'test'
+2024-11-30 22:01:55,080 - DEBUG - Пользователь 1020541698 запустил бота
+Update id=328972350 is not handled. Duration 31 ms by bot id=6588918438
+Cause exception while process update id=328972350 by bot id=6588918438
+TypeError: cannot unpack non-iterable NoneType object
+Traceback (most recent call last):
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\dispatcher.py", line 309, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\dispatcher.py", line 158, in feed_update
+    response = await self.update.wrap_outer_middleware(
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\middlewares\error.py", line 25, in __call__
+    return await handler(event, data)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\middlewares\user_context.py", line 56, in __call__
+    return await handler(event, data)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\fsm\middleware.py", line 42, in __call__
+    return await handler(event, data)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\event\telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\dispatcher.py", line 276, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\router.py", line 146, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\router.py", line 141, in _wrapped
+    return await self._propagate_event(
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\router.py", line 166, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\event\telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+  File "c:\Users\Dmitry\Documents\Git\image_handler\bot\handlers\user_handlers.py", line 20, in start_status_handler
+    User(message.from_user.id).new()
+  File "c:\Users\Dmitry\Documents\Git\image_handler\orm\model\user.py", line 12, in new
+    result, _ = sql.run(f'''
+TypeError: cannot unpack non-iterable NoneType object
+2024-11-30 22:02:20,778 - INFO - --Обработчики зарегистрированы--
+2024-11-30 22:02:20,779 - INFO - --База данных подключена--
+2024-11-30 22:02:20,779 - INFO - --Логирование настроено--
+2024-11-30 22:02:20,779 - INFO - запуск бота
+Start polling
+Run polling for bot @wallseytestbot id=6588918438 - 'test'
+2024-11-30 22:02:24,661 - DEBUG - Пользователь 1020541698 запустил бота
+Update id=328972351 is handled. Duration 23140 ms by bot id=6588918438
+2024-11-30 22:03:09,298 - INFO - --Обработчики зарегистрированы--
+2024-11-30 22:03:09,303 - INFO - --База данных подключена--
+2024-11-30 22:03:09,303 - INFO - --Логирование настроено--
+2024-11-30 22:03:09,303 - INFO - запуск бота
+Start polling
+Run polling for bot @wallseytestbot id=6588918438 - 'test'
+2024-11-30 22:03:59,355 - INFO - --Обработчики зарегистрированы--
+2024-11-30 22:03:59,357 - INFO - --База данных подключена--
+2024-11-30 22:03:59,358 - INFO - --Логирование настроено--
+2024-11-30 22:03:59,358 - INFO - запуск бота
+Start polling
+Run polling for bot @wallseytestbot id=6588918438 - 'test'
+2024-11-30 22:05:11,235 - INFO - --Обработчики зарегистрированы--
+2024-11-30 22:05:11,247 - INFO - --База данных подключена--
+2024-11-30 22:05:11,248 - INFO - --Логирование настроено--
+2024-11-30 22:05:11,248 - INFO - запуск бота
+Start polling
+Run polling for bot @wallseytestbot id=6588918438 - 'test'
+Update id=328972354 is not handled. Duration 16 ms by bot id=6588918438
+2024-11-30 22:06:27,196 - DEBUG - Пользователь 1020541698 запустил бота
+Update id=328972355 is handled. Duration 12077 ms by bot id=6588918438
+2024-11-30 22:08:09,406 - INFO - --Обработчики зарегистрированы--
+2024-11-30 22:08:09,407 - INFO - --База данных подключена--
+2024-11-30 22:08:09,407 - INFO - --Логирование настроено--
+2024-11-30 22:08:09,407 - INFO - запуск бота
+Start polling
+Run polling for bot @wallseytestbot id=6588918438 - 'test'
+2024-11-30 22:08:15,993 - DEBUG - Пользователь 1020541698 запустил бота
+Update id=328972356 is handled. Duration 280 ms by bot id=6588918438
+2024-11-30 22:10:17,750 - INFO - --Обработчики зарегистрированы--
+2024-11-30 22:10:17,750 - INFO - --База данных подключена--
+2024-11-30 22:10:17,751 - INFO - --Логирование настроено--
+2024-11-30 22:10:17,751 - INFO - запуск бота
+Start polling
+Run polling for bot @wallseytestbot id=6588918438 - 'test'
+2024-11-30 22:10:33,718 - DEBUG - Пользователь 1020541698 запустил бота
+2024-11-30 22:10:42,098 - ERROR - list index out of range
+Update id=328972357 is handled. Duration 19703 ms by bot id=6588918438
+2024-11-30 22:20:22,109 - INFO - --Обработчики зарегистрированы--
+2024-11-30 22:20:22,111 - INFO - --База данных подключена--
+2024-11-30 22:20:22,112 - INFO - --Логирование настроено--
+2024-11-30 22:20:22,112 - INFO - запуск бота
+Start polling
+Run polling for bot @wallseytestbot id=6588918438 - 'test'
+Update id=328972358 is not handled. Duration 44172 ms by bot id=6588918438
+Cause exception while process update id=328972358 by bot id=6588918438
+TypeError: unhashable type: 'numpy.ndarray'
+Traceback (most recent call last):
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\dispatcher.py", line 309, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\dispatcher.py", line 158, in feed_update
+    response = await self.update.wrap_outer_middleware(
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\middlewares\error.py", line 25, in __call__
+    return await handler(event, data)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\middlewares\user_context.py", line 56, in __call__
+    return await handler(event, data)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\fsm\middleware.py", line 42, in __call__
+    return await handler(event, data)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\event\telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\dispatcher.py", line 276, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\router.py", line 146, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\router.py", line 141, in _wrapped
+    return await self._propagate_event(
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\router.py", line 166, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\event\telegram.py", line 113, in trigger
+    result, data = await handler.check(event, **kwargs)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\event\handler.py", line 94, in check
+    check = await event_filter.call(*args, **kwargs)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+  File "c:\Users\Dmitry\Documents\Git\image_handler\bot\filters\bot_status.py", line 66, in __call__
+    return True if User(message.from_user.id).get_country() not in COUNTRY else False
+TypeError: unhashable type: 'numpy.ndarray'
+2024-11-30 22:22:38,242 - INFO - --Обработчики зарегистрированы--
+2024-11-30 22:22:38,243 - INFO - --База данных подключена--
+2024-11-30 22:22:38,243 - INFO - --Логирование настроено--
+2024-11-30 22:22:38,244 - INFO - запуск бота
+Start polling
+Run polling for bot @wallseytestbot id=6588918438 - 'test'
+2024-11-30 22:23:25,467 - DEBUG - Пользователь 1020541698 запустил бота
+2024-11-30 22:23:29,350 - ERROR - UNIQUE constraint failed: users.user_id
+Update id=328972359 is handled. Duration 64889 ms by bot id=6588918438
+2024-11-30 22:24:13,427 - DEBUG - Пользователь 1020541698 запустил бота
+2024-11-30 22:24:25,161 - ERROR - UNIQUE constraint failed: users.user_id
+2024-11-30 22:24:40,666 - INFO - --Обработчики зарегистрированы--
+2024-11-30 22:24:40,667 - INFO - --База данных подключена--
+2024-11-30 22:24:40,667 - INFO - --Логирование настроено--
+2024-11-30 22:24:40,667 - INFO - запуск бота
+Start polling
+Run polling for bot @wallseytestbot id=6588918438 - 'test'
+2024-11-30 22:25:34,735 - INFO - --Обработчики зарегистрированы--
+2024-11-30 22:25:34,735 - INFO - --База данных подключена--
+2024-11-30 22:25:34,736 - INFO - --Логирование настроено--
+2024-11-30 22:25:34,736 - INFO - запуск бота
+Start polling
+Run polling for bot @wallseytestbot id=6588918438 - 'test'
+2024-11-30 22:25:37,599 - ERROR - unsupported operand type(s) for |: 'type' and 'type'
+2024-11-30 22:25:37,605 - ERROR - unsupported operand type(s) for |: 'type' and 'type'
+2024-11-30 22:25:37,610 - ERROR - unsupported operand type(s) for |: 'type' and 'type'
+2024-11-30 22:25:37,610 - DEBUG - Пользователь 1020541698 запустил бота
+2024-11-30 22:25:37,611 - ERROR - unsupported operand type(s) for |: 'type' and 'type'
+2024-11-30 22:25:37,613 - ERROR - UNIQUE constraint failed: users.user_id
+Update id=328972362 is handled. Duration 327 ms by bot id=6588918438
+2024-11-30 22:26:05,364 - INFO - --Обработчики зарегистрированы--
+2024-11-30 22:26:05,365 - INFO - --База данных подключена--
+2024-11-30 22:26:05,366 - INFO - --Логирование настроено--
+2024-11-30 22:26:05,366 - INFO - запуск бота
+Start polling
+Run polling for bot @wallseytestbot id=6588918438 - 'test'
+2024-11-30 22:26:24,783 - DEBUG - Пользователь 1020541698 запустил бота
+2024-11-30 22:26:39,649 - ERROR - UNIQUE constraint failed: users.user_id
+Update id=328972363 is handled. Duration 31672 ms by bot id=6588918438
+2024-11-30 22:27:24,071 - INFO - --Обработчики зарегистрированы--
+2024-11-30 22:27:24,073 - INFO - --База данных подключена--
+2024-11-30 22:27:24,073 - INFO - --Логирование настроено--
+2024-11-30 22:27:24,074 - INFO - запуск бота
+Start polling
+Run polling for bot @wallseytestbot id=6588918438 - 'test'
+2024-11-30 22:27:25,365 - DEBUG - Пользователь 1020541698 запустил бота
+2024-11-30 22:27:55,831 - INFO - --Обработчики зарегистрированы--
+2024-11-30 22:27:55,832 - INFO - --База данных подключена--
+2024-11-30 22:27:55,832 - INFO - --Логирование настроено--
+2024-11-30 22:27:55,832 - INFO - запуск бота
+Start polling
+Run polling for bot @wallseytestbot id=6588918438 - 'test'
+2024-11-30 22:27:57,293 - DEBUG - Пользователь 1020541698 запустил бота
+Update id=328972365 is handled. Duration 26375 ms by bot id=6588918438
+2024-11-30 22:28:30,654 - DEBUG - Пользователь 1020541698 запустил бота
+Update id=328972366 is handled. Duration 156 ms by bot id=6588918438
+2024-11-30 22:29:04,071 - INFO - --Обработчики зарегистрированы--
+2024-11-30 22:29:04,071 - INFO - --База данных подключена--
+2024-11-30 22:29:04,072 - INFO - --Логирование настроено--
+2024-11-30 22:29:04,072 - INFO - запуск бота
+Start polling
+Run polling for bot @wallseytestbot id=6588918438 - 'test'
+2024-11-30 22:29:50,785 - INFO - --Обработчики зарегистрированы--
+2024-11-30 22:29:50,785 - INFO - --База данных подключена--
+2024-11-30 22:29:50,786 - INFO - --Логирование настроено--
+2024-11-30 22:29:50,786 - INFO - запуск бота
+Start polling
+Run polling for bot @wallseytestbot id=6588918438 - 'test'
+2024-11-30 22:30:27,410 - INFO - --Обработчики зарегистрированы--
+2024-11-30 22:30:27,411 - INFO - --База данных подключена--
+2024-11-30 22:30:27,411 - INFO - --Логирование настроено--
+2024-11-30 22:30:27,411 - INFO - запуск бота
+Start polling
+Run polling for bot @wallseytestbot id=6588918438 - 'test'
+2024-11-30 22:30:33,812 - DEBUG - Пользователь 1020541698 запустил бота
+Update id=328972368 is handled. Duration 281 ms by bot id=6588918438
+2024-11-30 22:30:35,755 - DEBUG - Пользователь 1020541698 выбирает страну test для ворка
+Update id=328972369 is not handled. Duration 14 ms by bot id=6588918438
+Cause exception while process update id=328972369 by bot id=6588918438
+AttributeError: 'int' object has no attribute 'id'
+Traceback (most recent call last):
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\dispatcher.py", line 309, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\dispatcher.py", line 158, in feed_update
+    response = await self.update.wrap_outer_middleware(
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\middlewares\error.py", line 25, in __call__
+    return await handler(event, data)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\middlewares\user_context.py", line 56, in __call__
+    return await handler(event, data)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\fsm\middleware.py", line 42, in __call__
+    return await handler(event, data)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\event\telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\dispatcher.py", line 276, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\router.py", line 146, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\router.py", line 141, in _wrapped
+    return await self._propagate_event(
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\router.py", line 166, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\event\telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+  File "c:\Users\Dmitry\Documents\Git\image_handler\bot\handlers\user_handlers.py", line 81, in choose_country
+    User.set_status(message.from_user.id, "work")
+  File "c:\Users\Dmitry\Documents\Git\image_handler\orm\model\user.py", line 42, in set_status
+    ''', (status, self.id))
+AttributeError: 'int' object has no attribute 'id'
+2024-11-30 22:33:56,602 - INFO - --Обработчики зарегистрированы--
+2024-11-30 22:33:56,603 - INFO - --База данных подключена--
+2024-11-30 22:33:56,603 - INFO - --Логирование настроено--
+2024-11-30 22:33:56,604 - INFO - запуск бота
+Start polling
+Run polling for bot @wallseytestbot id=6588918438 - 'test'
+2024-11-30 22:35:03,577 - DEBUG - Пользователь 1020541698 запустил бота
+Update id=328972370 is not handled. Duration 16 ms by bot id=6588918438
+Cause exception while process update id=328972370 by bot id=6588918438
+TypeError: 'User' object is not callable
+Traceback (most recent call last):
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\dispatcher.py", line 309, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\dispatcher.py", line 158, in feed_update
+    response = await self.update.wrap_outer_middleware(
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\middlewares\error.py", line 25, in __call__
+    return await handler(event, data)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\middlewares\user_context.py", line 56, in __call__
+    return await handler(event, data)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\fsm\middleware.py", line 42, in __call__
+    return await handler(event, data)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\event\telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\dispatcher.py", line 276, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\router.py", line 146, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\router.py", line 141, in _wrapped
+    return await self._propagate_event(
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\router.py", line 166, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\event\telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+  File "c:\Users\Dmitry\Documents\Git\image_handler\bot\handlers\user_handlers.py", line 20, in start_status_handler
+    User(message.from_user.id)(message.from_user.id).new()
+TypeError: 'User' object is not callable
+2024-11-30 22:35:56,374 - INFO - --Обработчики зарегистрированы--
+2024-11-30 22:35:56,374 - INFO - --База данных подключена--
+2024-11-30 22:35:56,375 - INFO - --Логирование настроено--
+2024-11-30 22:35:56,375 - INFO - запуск бота
+Start polling
+Run polling for bot @wallseytestbot id=6588918438 - 'test'
+2024-11-30 22:36:10,630 - DEBUG - Пользователь 1020541698 выбирает страну test для ворка
+Update id=328972371 is handled. Duration 375 ms by bot id=6588918438
+2024-11-30 22:36:16,950 - DEBUG - Пользователь 1020541698 запустил бота
+Update id=328972372 is handled. Duration 125 ms by bot id=6588918438
+2024-11-30 22:36:19,118 - DEBUG - Пользователь 1020541698 выбирает страну test для ворка
+Update id=328972373 is handled. Duration 172 ms by bot id=6588918438
+2024-11-30 22:36:25,421 - DEBUG - Пользователь 1020541698 пользователь запросил карусель крео
+Update id=328972374 is not handled. Duration 77 ms by bot id=6588918438
+Cause exception while process update id=328972374 by bot id=6588918438
+TypeError: get_country() missing 1 required positional argument: 'self'
+Traceback (most recent call last):
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\dispatcher.py", line 309, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\dispatcher.py", line 158, in feed_update
+    response = await self.update.wrap_outer_middleware(
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\middlewares\error.py", line 25, in __call__
+    return await handler(event, data)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\middlewares\user_context.py", line 56, in __call__
+    return await handler(event, data)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\fsm\middleware.py", line 42, in __call__
+    return await handler(event, data)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\event\telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\dispatcher.py", line 276, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\router.py", line 146, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\router.py", line 141, in _wrapped
+    return await self._propagate_event(
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\router.py", line 166, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\event\telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+  File "c:\Users\Dmitry\Documents\Git\image_handler\bot\handlers\user_handlers.py", line 45, in work_status_handler
+    country = User.get_country()
+TypeError: get_country() missing 1 required positional argument: 'self'
+2024-11-30 22:37:30,597 - INFO - --Обработчики зарегистрированы--
+2024-11-30 22:37:30,597 - INFO - --База данных подключена--
+2024-11-30 22:37:30,598 - INFO - --Логирование настроено--
+2024-11-30 22:37:30,598 - INFO - запуск бота
+Start polling
+Run polling for bot @wallseytestbot id=6588918438 - 'test'
+2024-11-30 22:37:38,010 - DEBUG - Пользователь 1020541698 запустил бота
+Update id=328972375 is handled. Duration 375 ms by bot id=6588918438
+2024-11-30 22:37:44,694 - DEBUG - Пользователь 1020541698 выбирает страну test для ворка
+Update id=328972376 is handled. Duration 188 ms by bot id=6588918438
+2024-11-30 22:37:46,317 - DEBUG - Пользователь 1020541698 пользователь запросил карусель крео
+2024-11-30 22:37:46,663 - DEBUG - Получение изображения: https://sun9-30.userapi.com/impg/8th2jBKraNq0Mw_kY5itf8zv0DePuaPFBTrm2Q/KjG3hIWQ-9k.jpg?size=1920x1080&quality=96&sign=b44abb0b99ccd817f5a40ade6c884012&type=album
+Update id=328972377 is handled. Duration 6188 ms by bot id=6588918438
+2024-11-30 22:38:25,421 - DEBUG - Пользователь 1020541698 получает фон
+2024-11-30 22:38:25,716 - DEBUG - Получение изображения: https://sun9-23.userapi.com/impg/aQ6XMCTRJazzZo8WfKBc2F9WthBMHcvDkwvlEQ/uR8GZfxX9pw.jpg?size=1920x1080&quality=96&sign=ae547c245ca8b539300a36e24ad73275&type=album
+Update id=328972378 is handled. Duration 1780 ms by bot id=6588918438
+2024-11-30 22:38:36,039 - DEBUG - Пользователь 1020541698 получает фон
+2024-11-30 22:38:36,309 - DEBUG - Получение изображения: https://sun9-50.userapi.com/impg/yJXy2AVSc8eNqPvjXf09c43eN4EN5o2ELE9XwQ/jIf6oH7g4QE.jpg?size=1920x1080&quality=96&sign=0b810d794cf3c77bc4c7394aadc4e501&type=album
+Update id=328972379 is handled. Duration 1312 ms by bot id=6588918438
+2024-11-30 22:38:58,668 - DEBUG - Пользователь 1020541698 зашел в админ панель
+Update id=328972380 is handled. Duration 218 ms by bot id=6588918438
+2024-11-30 22:39:01,487 - DEBUG - Пользователь 1020541698 запросил текущую настройку обработчиков
+Update id=328972381 is handled. Duration 155 ms by bot id=6588918438
+2024-11-30 22:39:04,809 - DEBUG - Пользователь 1020541698 включил превью
+Update id=328972382 is handled. Duration 77 ms by bot id=6588918438
+2024-11-30 22:39:05,630 - DEBUG - Пользователь 1020541698 отключил фон
+Update id=328972383 is handled. Duration 108 ms by bot id=6588918438
+2024-11-30 22:39:07,163 - DEBUG - Пользователь 1020541698 включил футажи
+Update id=328972384 is handled. Duration 93 ms by bot id=6588918438
+2024-11-30 22:39:07,783 - DEBUG - Пользователь 1020541698 включил фон
+Update id=328972385 is handled. Duration 94 ms by bot id=6588918438
+2024-11-30 22:39:11,731 - DEBUG - Пользователь 1020541698 отключил фон
+Update id=328972386 is handled. Duration 94 ms by bot id=6588918438
+2024-11-30 22:39:12,580 - DEBUG - Пользователь 1020541698 отключил футажи
+Update id=328972387 is handled. Duration 108 ms by bot id=6588918438
+2024-11-30 22:39:13,159 - DEBUG - Пользователь 1020541698 отключил превью
+Update id=328972388 is handled. Duration 94 ms by bot id=6588918438
+2024-11-30 22:39:16,560 - DEBUG - Пользователь 1020541698 включил фон
+Update id=328972389 is handled. Duration 141 ms by bot id=6588918438
+2024-11-30 22:39:19,622 - DEBUG - Пользователь 1020541698 включил превью
+Update id=328972390 is handled. Duration 218 ms by bot id=6588918438
+2024-11-30 22:39:20,246 - DEBUG - Пользователь 1020541698 включил футажи
+Update id=328972391 is handled. Duration 171 ms by bot id=6588918438
+2024-11-30 22:39:27,476 - DEBUG - Пользователь 1020541698 отключил футажи
+Update id=328972392 is handled. Duration 109 ms by bot id=6588918438
+2024-11-30 22:39:27,898 - DEBUG - Пользователь 1020541698 отключил фон
+Update id=328972393 is handled. Duration 110 ms by bot id=6588918438
+2024-11-30 22:39:28,220 - DEBUG - Пользователь 1020541698 отключил превью
+Update id=328972394 is handled. Duration 93 ms by bot id=6588918438
+2024-11-30 22:39:29,910 - DEBUG - Пользователь 1020541698 зашел в админ панель
+Update id=328972395 is handled. Duration 219 ms by bot id=6588918438
+2024-11-30 22:39:38,528 - DEBUG - Пользователь 1020541698 запустил бота
+Update id=328972396 is handled. Duration 280 ms by bot id=6588918438
+2024-11-30 22:39:39,738 - DEBUG - Пользователь 1020541698 выбирает страну test для ворка
+Update id=328972397 is handled. Duration 155 ms by bot id=6588918438
+2024-11-30 22:39:41,294 - DEBUG - Пользователь 1020541698 пользователь запросил карусель крео
+Update id=328972398 is handled. Duration 2015 ms by bot id=6588918438
+2024-11-30 22:39:54,002 - DEBUG - Пользователь 1020541698 получает фон
+2024-11-30 22:39:54,273 - DEBUG - Получение изображения: https://sun9-28.userapi.com/impg/T60QKF9r8Oo4rqnXZsR5WSTzWPNM-gG3DGTCUQ/m2SW1Cn8k-0.jpg?size=1920x1080&quality=96&sign=7bd17d79ed951c5ab6a3e5aae8cdc097&type=album
+Update id=328972399 is handled. Duration 1141 ms by bot id=6588918438
+2024-11-30 22:40:02,368 - DEBUG - Пользователь 1020541698 получает фон
+2024-11-30 22:40:02,682 - DEBUG - Получение изображения: https://sun9-80.userapi.com/impg/CEjT3XyskYiH3uuqLIn5wGC5XzfyPsn0XVkhqQ/lcWT0nny2fE.jpg?size=1920x1080&quality=96&sign=92f69d5d7a7a6a78dbe25eb1ce625711&type=album
+Update id=328972400 is handled. Duration 1297 ms by bot id=6588918438
+2024-11-30 22:40:04,554 - DEBUG - Пользователь 1020541698 получает фон
+2024-11-30 22:40:04,907 - DEBUG - Получение изображения: https://sun9-46.userapi.com/impg/J9waibqpJQrE8fRzQWAbzKqqXYqTP-mBNQKXJQ/_seXH1SNDsQ.jpg?size=1920x1080&quality=96&sign=648660b57916e229a137498fc8c51c41&type=album
+Update id=328972401 is handled. Duration 1218 ms by bot id=6588918438
+2024-11-30 22:40:06,928 - DEBUG - Пользователь 1020541698 получает фон
+2024-11-30 22:40:07,243 - DEBUG - Получение изображения: https://sun9-21.userapi.com/impg/OucPvBPjhyNjCqp0zG7qyYQkOOxPYzR0BIlOKw/lBZODkogB3M.jpg?size=1920x1080&quality=96&sign=8398b589c76155fecb88273be82d78f5&type=album
+Update id=328972402 is handled. Duration 1828 ms by bot id=6588918438
+2024-11-30 22:40:09,721 - DEBUG - Пользователь 1020541698 получает фон
+2024-11-30 22:40:09,986 - DEBUG - Получение изображения: https://sun9-2.userapi.com/impg/0yUS1aw6ui6ytfptn2M63Opvepd6kxeMQicz9Q/Pe2m_TrXQV8.jpg?size=1920x1080&quality=96&sign=bae204075affcacfa9c910d99acaf60d&type=album
+Update id=328972403 is handled. Duration 1608 ms by bot id=6588918438
+2024-11-30 22:40:31,166 - DEBUG - Пользователь 1020541698 зашел в админ панель
+Update id=328972404 is handled. Duration 203 ms by bot id=6588918438
+2024-11-30 22:40:32,854 - DEBUG - Пользователь 1020541698 запросил количество фонов
+Update id=328972405 is handled. Duration 125 ms by bot id=6588918438
+2024-11-30 22:40:41,815 - DEBUG - Пользователь 1020541698 запросил статистику пролива
+Update id=328972406 is handled. Duration 93 ms by bot id=6588918438
+2024-11-30 22:41:33,752 - DEBUG - Пользователь 1020541698 запустил бота
+Update id=328972407 is handled. Duration 297 ms by bot id=6588918438
+2024-11-30 22:44:16,142 - DEBUG - Пользователь 1020541698 запустил бота
+Update id=328972408 is handled. Duration 235 ms by bot id=6588918438
+2024-11-30 22:44:18,451 - DEBUG - Пользователь 1020541698 выбирает страну test для ворка
+Update id=328972409 is handled. Duration 202 ms by bot id=6588918438
+2024-11-30 22:44:21,280 - DEBUG - Пользователь 1020541698 получает фон
+2024-11-30 22:44:22,059 - DEBUG - Получение изображения: https://sun9-24.userapi.com/impg/fWw4ddvcN8HqQbL7t7cWe9EOc5d2Ejop8ZXCug/dQxusOIoJqY.jpg?size=1920x1080&quality=96&sign=1fbc6797f1b57a220f31ad443004be8d&type=album
+Update id=328972410 is handled. Duration 2656 ms by bot id=6588918438
+2024-11-30 22:44:29,289 - DEBUG - Пользователь 1020541698 пользователь запросил карусель крео
+Update id=328972411 is handled. Duration 1500 ms by bot id=6588918438
+2024-11-30 22:44:33,378 - DEBUG - Пользователь 1020541698 получает фон
+2024-11-30 22:44:33,726 - DEBUG - Получение изображения: https://sun9-5.userapi.com/impg/ej-zFJKO25bSBKKmAfIOdPFDlQycoISXQtoDag/HrmZzo9lbuM.jpg?size=1920x1080&quality=96&sign=db956cf5d96edf3858ccc63d02de8c33&type=album
+Update id=328972412 is handled. Duration 1312 ms by bot id=6588918438
+2024-11-30 22:44:50,454 - DEBUG - Пользователь 1020541698 получает фон
+2024-11-30 22:44:50,830 - DEBUG - Получение изображения: https://sun9-78.userapi.com/impg/xgpYS0_21Jl6gnRMAoN_da8_vbw8KlDVKgdk6A/S8OYrnup1xQ.jpg?size=1920x1080&quality=96&sign=2ac6da62bb541e224ead477821b750b5&type=album
+Update id=328972413 is handled. Duration 2109 ms by bot id=6588918438
+2024-11-30 22:45:00,133 - DEBUG - Пользователь 1020541698 получает фон
+2024-11-30 22:45:00,448 - DEBUG - Получение изображения: https://sun9-42.userapi.com/impg/_xr8MAw8NISOMJkExYPDBlD2nkAo1vn1SdOWUQ/P2KLddSK6bE.jpg?size=1920x1080&quality=96&sign=98c33a0660c08f448537b7433fefd811&type=album
+2024-11-30 22:45:01,319 - DEBUG - Пользователь 1020541698 получает фон
+2024-11-30 22:45:01,585 - DEBUG - Получение изображения: https://sun9-51.userapi.com/impg/OynDOq09KjBHlSBgKVcoeLodrk6OQLlJXSl18Q/P5gpVa1vRKo.jpg?size=1920x1080&quality=96&sign=5c60c20cc531aec07e8575cf4c82bfcd&type=album
+Update id=328972414 is handled. Duration 2061 ms by bot id=6588918438
+2024-11-30 22:45:02,253 - DEBUG - Пользователь 1020541698 получает фон
+2024-11-30 22:45:02,592 - DEBUG - Получение изображения: https://sun9-66.userapi.com/impg/4DE0Taa0ioLqdxGQsCke98htv-_33KvFGqVDig/OXBIaw1A02M.jpg?size=1920x1080&quality=96&sign=797042761d2b9a351b7d4e667a16353b&type=album
+2024-11-30 22:45:03,186 - DEBUG - Пользователь 1020541698 получает фон
+2024-11-30 22:45:03,498 - DEBUG - Получение изображения: https://sun9-74.userapi.com/impg/_7ctDVAVPpgTb10uzEA51OUGRCDNr59n74c4SQ/2AIO73agGwo.jpg?size=1920x1080&quality=96&sign=57b9abda8788642ac48e4e6fc5d7c931&type=album
+2024-11-30 22:45:04,118 - DEBUG - Пользователь 1020541698 получает фон
+2024-11-30 22:45:04,411 - DEBUG - Получение изображения: https://sun9-80.userapi.com/impg/ZPHMs0nE7QE0p3LvQ75u3R4JBFTux_ewD42gag/5rixqZ00qpk.jpg?size=1920x1080&quality=96&sign=3c208f67b9a3729d4887edb2871d0ffa&type=album
+2024-11-30 22:45:05,154 - DEBUG - Пользователь 1020541698 получает фон
+2024-11-30 22:45:05,483 - DEBUG - Получение изображения: https://sun9-72.userapi.com/impg/OrjRQNYv3MUrwM4VcJiJCfnHT140gK-JCpZLdg/EFikoRmyg4s.jpg?size=1920x1080&quality=96&sign=2fa08344670c866039ac5cc8454f9424&type=album
+Update id=328972416 is handled. Duration 4781 ms by bot id=6588918438
+Update id=328972415 is handled. Duration 6047 ms by bot id=6588918438
+Update id=328972417 is handled. Duration 5484 ms by bot id=6588918438
+Update id=328972418 is handled. Duration 5858 ms by bot id=6588918438
+Update id=328972419 is handled. Duration 6405 ms by bot id=6588918438
+Update id=328972420 is handled. Duration 218 ms by bot id=6588918438
+2024-11-30 22:45:41,154 - DEBUG - Пользователь 1020541698 запустил бота
+Update id=328972421 is handled. Duration 140 ms by bot id=6588918438
+2024-11-30 22:50:28,062 - INFO - --Обработчики зарегистрированы--
+2024-11-30 22:50:28,063 - INFO - --База данных подключена--
+2024-11-30 22:50:28,063 - INFO - --Логирование настроено--
+2024-11-30 22:50:28,064 - INFO - запуск бота
+Start polling
+Run polling for bot @wallseytestbot id=6588918438 - 'test'
+2024-11-30 22:50:47,570 - DEBUG - Пользователь 1020541698 запустил бота
+Update id=328972422 is handled. Duration 344 ms by bot id=6588918438
+2024-11-30 22:50:49,772 - DEBUG - Пользователь 1020541698 выбирает страну test для ворка
+Update id=328972423 is handled. Duration 188 ms by bot id=6588918438
+2024-11-30 22:50:52,165 - DEBUG - Пользователь 1020541698 получает фон
+2024-11-30 22:50:52,432 - DEBUG - Получение изображения: https://sun9-30.userapi.com/impg/8th2jBKraNq0Mw_kY5itf8zv0DePuaPFBTrm2Q/KjG3hIWQ-9k.jpg?size=1920x1080&quality=96&sign=b44abb0b99ccd817f5a40ade6c884012&type=album
+Update id=328972424 is handled. Duration 1577 ms by bot id=6588918438
+2024-11-30 22:50:56,801 - DEBUG - Пользователь 1020541698 получает фон
+2024-11-30 22:50:57,117 - DEBUG - Получение изображения: https://sun9-23.userapi.com/impg/aQ6XMCTRJazzZo8WfKBc2F9WthBMHcvDkwvlEQ/uR8GZfxX9pw.jpg?size=1920x1080&quality=96&sign=ae547c245ca8b539300a36e24ad73275&type=album
+Update id=328972425 is handled. Duration 1156 ms by bot id=6588918438
+2024-11-30 23:00:43,894 - INFO - --Обработчики зарегистрированы--
+2024-11-30 23:00:43,895 - INFO - --База данных подключена--
+2024-11-30 23:00:43,895 - INFO - --Логирование настроено--
+2024-11-30 23:00:43,895 - INFO - запуск бота
+2024-11-30 23:02:23,584 - DEBUG - Пользователь 1020541698 запустил бота
+2024-11-30 23:02:36,658 - DEBUG - Пользователь 1020541698 выбирает страну test для ворка
+2024-11-30 23:03:16,946 - DEBUG - Пользователь 1020541698 получает фон
+2024-11-30 23:03:17,240 - DEBUG - Получение изображения: https://sun9-30.userapi.com/impg/8th2jBKraNq0Mw_kY5itf8zv0DePuaPFBTrm2Q/KjG3hIWQ-9k.jpg?size=1920x1080&quality=96&sign=b44abb0b99ccd817f5a40ade6c884012&type=album
+2024-11-30 23:03:34,983 - DEBUG - Пользователь 1020541698 получает фон
+2024-11-30 23:03:35,253 - DEBUG - Получение изображения: https://sun9-23.userapi.com/impg/aQ6XMCTRJazzZo8WfKBc2F9WthBMHcvDkwvlEQ/uR8GZfxX9pw.jpg?size=1920x1080&quality=96&sign=ae547c245ca8b539300a36e24ad73275&type=album
+2024-11-30 23:04:21,851 - DEBUG - Пользователь 1020541698 получает фон
+2024-11-30 23:04:22,132 - DEBUG - Получение изображения: https://sun9-50.userapi.com/impg/yJXy2AVSc8eNqPvjXf09c43eN4EN5o2ELE9XwQ/jIf6oH7g4QE.jpg?size=1920x1080&quality=96&sign=0b810d794cf3c77bc4c7394aadc4e501&type=album
+2024-11-30 23:04:50,783 - DEBUG - Пользователь 1020541698 зашел в админ панель
+2024-11-30 23:04:53,381 - DEBUG - Пользователь 1020541698 пользователь запускает рассылку
+2024-11-30 23:04:56,522 - DEBUG - Пользователь 1020541698 запустил рассылку
+Cause exception while process update id=328972433 by bot id=6588918438
+TypeError: 'int' object is not iterable
+Traceback (most recent call last):
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\dispatcher.py", line 309, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\dispatcher.py", line 158, in feed_update
+    response = await self.update.wrap_outer_middleware(
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\middlewares\error.py", line 25, in __call__
+    return await handler(event, data)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\middlewares\user_context.py", line 56, in __call__
+    return await handler(event, data)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\fsm\middleware.py", line 42, in __call__
+    return await handler(event, data)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\event\telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\dispatcher.py", line 276, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\router.py", line 146, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\router.py", line 141, in _wrapped
+    return await self._propagate_event(
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\router.py", line 166, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\event\telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+  File "c:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+  File "c:\Users\Dmitry\Documents\Git\image_handler\bot\handlers\admin_handlers.py", line 277, in created_sending
+    for user in users:
+TypeError: 'int' object is not iterable
+Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientOSError: [WinError 1236] ����������� � ���� ���� ��������� ��������� ��������
+Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 6588918438)
+Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [������� ����� ����������. �� ����������� � ���������� ������� � ���� ���������� � ���������� ������� Windows]
+Sleep for 1.222343 seconds and try again... (tryings = 1, bot id = 6588918438)
+Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorDNSError: Cannot connect to host api.telegram.org:443 ssl:default [getaddrinfo failed]
+Sleep for 1.615257 seconds and try again... (tryings = 2, bot id = 6588918438)
+Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorDNSError: Cannot connect to host api.telegram.org:443 ssl:default [getaddrinfo failed]
+Sleep for 2.088882 seconds and try again... (tryings = 3, bot id = 6588918438)
+Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorDNSError: Cannot connect to host api.telegram.org:443 ssl:default [getaddrinfo failed]
+Sleep for 2.770490 seconds and try again... (tryings = 4, bot id = 6588918438)
+2024-12-01 16:40:53,701 - DEBUG - Пользователь 1020541698 запустил бота
+2024-12-01 16:40:55,151 - DEBUG - Пользователь 1020541698 выбирает страну test для ворка
+2024-12-01 16:40:56,555 - DEBUG - Пользователь 1020541698 получает фон
+2024-12-01 16:40:56,850 - DEBUG - Получение изображения: https://sun9-28.userapi.com/impg/T60QKF9r8Oo4rqnXZsR5WSTzWPNM-gG3DGTCUQ/m2SW1Cn8k-0.jpg?size=1920x1080&quality=96&sign=7bd17d79ed951c5ab6a3e5aae8cdc097&type=album
+2024-12-01 16:41:02,733 - DEBUG - Пользователь 1020541698 получает фон
+2024-12-01 16:41:03,014 - DEBUG - Получение изображения: https://sun9-80.userapi.com/impg/CEjT3XyskYiH3uuqLIn5wGC5XzfyPsn0XVkhqQ/lcWT0nny2fE.jpg?size=1920x1080&quality=96&sign=92f69d5d7a7a6a78dbe25eb1ce625711&type=album
+2024-12-01 16:41:06,075 - DEBUG - Пользователь 1020541698 получает фон
+2024-12-01 16:41:06,417 - DEBUG - Получение изображения: https://sun9-46.userapi.com/impg/J9waibqpJQrE8fRzQWAbzKqqXYqTP-mBNQKXJQ/_seXH1SNDsQ.jpg?size=1920x1080&quality=96&sign=648660b57916e229a137498fc8c51c41&type=album
+2024-12-01 16:41:08,714 - DEBUG - Пользователь 1020541698 получает фон
+2024-12-01 16:41:09,033 - DEBUG - Получение изображения: https://sun9-21.userapi.com/impg/OucPvBPjhyNjCqp0zG7qyYQkOOxPYzR0BIlOKw/lBZODkogB3M.jpg?size=1920x1080&quality=96&sign=8398b589c76155fecb88273be82d78f5&type=album
+2024-12-01 16:41:10,735 - DEBUG - Пользователь 1020541698 получает фон
+2024-12-01 16:41:11,003 - DEBUG - Получение изображения: https://sun9-2.userapi.com/impg/0yUS1aw6ui6ytfptn2M63Opvepd6kxeMQicz9Q/Pe2m_TrXQV8.jpg?size=1920x1080&quality=96&sign=bae204075affcacfa9c910d99acaf60d&type=album
+2024-12-01 16:41:12,649 - DEBUG - Пользователь 1020541698 получает фон
+2024-12-01 16:41:12,989 - DEBUG - Получение изображения: https://sun9-24.userapi.com/impg/fWw4ddvcN8HqQbL7t7cWe9EOc5d2Ejop8ZXCug/dQxusOIoJqY.jpg?size=1920x1080&quality=96&sign=1fbc6797f1b57a220f31ad443004be8d&type=album
+2024-12-01 16:41:14,506 - DEBUG - Пользователь 1020541698 получает фон
+2024-12-01 16:41:14,807 - DEBUG - Получение изображения: https://sun9-5.userapi.com/impg/ej-zFJKO25bSBKKmAfIOdPFDlQycoISXQtoDag/HrmZzo9lbuM.jpg?size=1920x1080&quality=96&sign=db956cf5d96edf3858ccc63d02de8c33&type=album
+2024-12-01 16:41:16,557 - DEBUG - Пользователь 1020541698 получает фон
+2024-12-01 16:41:16,903 - DEBUG - Получение изображения: https://sun9-78.userapi.com/impg/xgpYS0_21Jl6gnRMAoN_da8_vbw8KlDVKgdk6A/S8OYrnup1xQ.jpg?size=1920x1080&quality=96&sign=2ac6da62bb541e224ead477821b750b5&type=album
+2024-12-01 16:41:18,521 - DEBUG - Пользователь 1020541698 получает фон
+2024-12-01 16:41:18,830 - DEBUG - Получение изображения: https://sun9-42.userapi.com/impg/_xr8MAw8NISOMJkExYPDBlD2nkAo1vn1SdOWUQ/P2KLddSK6bE.jpg?size=1920x1080&quality=96&sign=98c33a0660c08f448537b7433fefd811&type=album
+2024-12-01 17:37:52,530 - INFO - --Обработчики зарегистрированы--
+2024-12-01 17:37:52,530 - INFO - --База данных подключена--
+2024-12-01 17:37:52,530 - INFO - --Логирование настроено--
+2024-12-01 17:37:52,530 - INFO - запуск бота
+2024-12-01 17:38:18,804 - INFO - --Обработчики зарегистрированы--
+2024-12-01 17:38:18,805 - INFO - --База данных подключена--
+2024-12-01 17:38:18,805 - INFO - --Логирование настроено--
+2024-12-01 17:38:18,805 - INFO - запуск бота
+2024-12-01 17:40:38,898 - INFO - --Обработчики зарегистрированы--
+2024-12-01 17:40:38,898 - INFO - --База данных подключена--
+2024-12-01 17:40:38,898 - INFO - --Логирование настроено--
+2024-12-01 17:40:38,898 - INFO - запуск бота
+2024-12-01 17:42:44,328 - INFO - --Обработчики зарегистрированы--
+2024-12-01 17:42:44,328 - INFO - --База данных подключена--
+2024-12-01 17:42:44,328 - INFO - --Логирование настроено--
+2024-12-01 17:42:44,328 - INFO - запуск бота
+2024-12-01 17:44:13,093 - INFO - --Обработчики зарегистрированы--
+2024-12-01 17:44:13,094 - INFO - --База данных подключена--
+2024-12-01 17:44:13,094 - INFO - --Логирование настроено--
+2024-12-01 17:44:13,094 - INFO - запуск бота
+2024-12-01 17:46:13,472 - INFO - --Обработчики зарегистрированы--
+2024-12-01 17:46:13,473 - INFO - --База данных подключена--
+2024-12-01 17:46:13,473 - INFO - --Логирование настроено--
+2024-12-01 17:46:13,473 - INFO - запуск бота
+2024-12-01 17:47:03,897 - INFO - --Обработчики зарегистрированы--
+2024-12-01 17:47:03,898 - INFO - --База данных подключена--
+2024-12-01 17:47:03,898 - INFO - --Логирование настроено--
+2024-12-01 17:47:03,898 - INFO - запуск бота
+2024-12-01 21:50:31,578 - INFO - --Обработчики зарегистрированы--
+2024-12-01 21:50:31,578 - INFO - --База данных подключена--
+2024-12-01 21:50:31,578 - INFO - --Логирование настроено--
+2024-12-01 21:50:31,578 - INFO - запуск бота
+2024-12-01 22:00:49,157 - INFO - --Обработчики зарегистрированы--
+2024-12-01 22:00:49,157 - INFO - --База данных подключена--
+2024-12-01 22:00:49,157 - INFO - --Логирование настроено--
+2024-12-01 22:00:49,158 - INFO - запуск бота
+2024-12-01 22:01:38,207 - INFO - --Обработчики зарегистрированы--
+2024-12-01 22:01:38,208 - INFO - --База данных подключена--
+2024-12-01 22:01:38,208 - INFO - --Логирование настроено--
+2024-12-01 22:01:38,208 - INFO - запуск бота
+2024-12-01 22:04:24,535 - INFO - --Обработчики зарегистрированы--
+2024-12-01 22:04:24,536 - INFO - --База данных подключена--
+2024-12-01 22:04:24,536 - INFO - --Логирование настроено--
+2024-12-01 22:04:24,536 - INFO - запуск бота
+2024-12-01 22:12:52,208 - INFO - --Обработчики зарегистрированы--
+2024-12-01 22:12:52,209 - INFO - --База данных подключена--
+2024-12-01 22:12:52,209 - INFO - --Логирование настроено--
+2024-12-01 22:12:52,209 - INFO - запуск бота
+2024-12-01 22:14:36,642 - INFO - --Обработчики зарегистрированы--
+2024-12-01 22:14:36,644 - INFO - --База данных подключена--
+2024-12-01 22:14:36,644 - INFO - --Логирование настроено--
+2024-12-01 22:14:36,645 - INFO - запуск бота
+2024-12-01 22:14:42,509 - DEBUG - Пользователь 1020541698 пишет барабусе
+2024-12-01 22:15:04,617 - DEBUG - Пользователь 1020541698 пишет барабусе
+2024-12-01 22:16:01,992 - DEBUG - Пользователь 479347949 пишет барабусе
+2024-12-01 22:20:51,129 - INFO - --Обработчики зарегистрированы--
+2024-12-01 22:20:51,129 - INFO - --База данных подключена--
+2024-12-01 22:20:51,129 - INFO - --Логирование настроено--
+2024-12-01 22:20:51,129 - INFO - запуск бота
+2024-12-01 22:46:04,918 - INFO - --Обработчики зарегистрированы--
+2024-12-01 22:46:04,919 - INFO - --База данных подключена--
+2024-12-01 22:46:04,919 - INFO - --Логирование настроено--
+2024-12-01 22:46:04,919 - INFO - запуск бота
+2024-12-01 22:47:25,181 - INFO - --Обработчики зарегистрированы--
+2024-12-01 22:47:25,187 - INFO - --База данных подключена--
+2024-12-01 22:47:25,187 - INFO - --Логирование настроено--
+2024-12-01 22:47:25,187 - INFO - запуск бота
+2024-12-01 22:49:12,361 - INFO - --Обработчики зарегистрированы--
+2024-12-01 22:49:12,362 - INFO - --База данных подключена--
+2024-12-01 22:49:12,363 - INFO - --Логирование настроено--
+2024-12-01 22:49:12,403 - INFO - --Логирование настроено--
+2024-12-01 22:49:12,403 - INFO - --Логирование настроено--
+2024-12-01 22:51:34,612 - INFO - --Логирование настроено--
+2024-12-01 22:51:34,626 - INFO - --Обработчики зарегистрированы--
+2024-12-01 22:51:34,632 - INFO - --База данных подключена--
+2024-12-01 22:51:34,672 - INFO - --Список фонов обновлен--
+2024-12-01 22:51:34,672 - INFO - ----
+2024-12-01 22:51:34,672 - INFO - --запуск бота--
+2024-12-01 22:52:01,310 - INFO - --Логирование настроено--
+2024-12-01 22:52:01,324 - INFO - --Обработчики зарегистрированы--
+2024-12-01 22:52:01,325 - INFO - --База данных подключена--
+2024-12-01 22:52:01,364 - INFO - --Список фонов обновлен--
+2024-12-01 22:52:01,364 - INFO - --запуск бота--
+2024-12-01 22:52:54,661 - DEBUG - Пользователь 1020541698 получает фон
+2024-12-01 22:52:54,949 - DEBUG - Получение изображения: https://sun9-30.userapi.com/impg/8th2jBKraNq0Mw_kY5itf8zv0DePuaPFBTrm2Q/KjG3hIWQ-9k.jpg?size=1920x1080&quality=96&sign=b44abb0b99ccd817f5a40ade6c884012&type=album
+2024-12-01 22:52:59,026 - DEBUG - Пользователь 1020541698 получает фон
+2024-12-01 22:52:59,304 - DEBUG - Получение изображения: https://sun9-23.userapi.com/impg/aQ6XMCTRJazzZo8WfKBc2F9WthBMHcvDkwvlEQ/uR8GZfxX9pw.jpg?size=1920x1080&quality=96&sign=ae547c245ca8b539300a36e24ad73275&type=album
+2024-12-01 22:53:01,726 - DEBUG - Пользователь 1020541698 получает фон
+2024-12-01 22:53:01,997 - DEBUG - Получение изображения: https://sun9-50.userapi.com/impg/yJXy2AVSc8eNqPvjXf09c43eN4EN5o2ELE9XwQ/jIf6oH7g4QE.jpg?size=1920x1080&quality=96&sign=0b810d794cf3c77bc4c7394aadc4e501&type=album
+2024-12-01 22:53:04,635 - DEBUG - Пользователь 1020541698 получает фон
+2024-12-01 22:53:04,911 - DEBUG - Получение изображения: https://sun9-28.userapi.com/impg/T60QKF9r8Oo4rqnXZsR5WSTzWPNM-gG3DGTCUQ/m2SW1Cn8k-0.jpg?size=1920x1080&quality=96&sign=7bd17d79ed951c5ab6a3e5aae8cdc097&type=album
+2024-12-01 22:53:25,686 - INFO - --Логирование настроено--
+2024-12-01 22:53:25,701 - INFO - --Обработчики зарегистрированы--
+2024-12-01 22:53:25,702 - INFO - --База данных подключена--
+2024-12-01 22:53:25,741 - INFO - --Список фонов обновлен--
+2024-12-01 22:53:25,741 - INFO - --запуск бота--
+2024-12-01 22:53:35,486 - DEBUG - Пользователь 1020541698 получает фон
+2024-12-01 22:53:35,727 - DEBUG - Получение изображения: https://sun9-30.userapi.com/impg/8th2jBKraNq0Mw_kY5itf8zv0DePuaPFBTrm2Q/KjG3hIWQ-9k.jpg?size=1920x1080&quality=96&sign=b44abb0b99ccd817f5a40ade6c884012&type=album
+2024-12-01 22:55:44,952 - INFO - --Логирование настроено--
+2024-12-01 22:55:44,966 - INFO - --Обработчики зарегистрированы--
+2024-12-01 22:55:44,967 - INFO - --База данных подключена--
+2024-12-01 22:56:42,133 - INFO - --Логирование настроено--
+2024-12-01 22:56:42,147 - INFO - --Обработчики зарегистрированы--
+2024-12-01 22:56:42,154 - INFO - --База данных подключена--
+2024-12-01 22:58:43,246 - INFO - --Логирование настроено--
+2024-12-01 22:58:43,262 - INFO - --Обработчики зарегистрированы--
+2024-12-01 22:58:43,265 - INFO - --База данных подключена--
+2024-12-01 23:00:46,812 - INFO - --Логирование настроено--
+2024-12-01 23:00:46,828 - INFO - --Обработчики зарегистрированы--
+2024-12-01 23:00:46,829 - INFO - --База данных подключена--
+2024-12-01 23:04:03,997 - INFO - --Логирование настроено--
+2024-12-01 23:04:04,013 - INFO - --Обработчики зарегистрированы--
+2024-12-01 23:04:04,014 - INFO - --База данных подключена--
+2024-12-01 23:05:08,671 - INFO - --Логирование настроено--
+2024-12-01 23:05:08,686 - INFO - --Обработчики зарегистрированы--
+2024-12-01 23:05:08,687 - INFO - --База данных подключена--
+2024-12-01 23:07:17,077 - INFO - --Логирование настроено--
+2024-12-01 23:07:17,093 - INFO - --Обработчики зарегистрированы--
+2024-12-01 23:07:22,730 - INFO - --База данных подключена--
+2024-12-01 23:07:22,731 - INFO - --запуск бота--
+2024-12-01 23:07:26,046 - DEBUG - Пользователь 1020541698 запустил бота
+2024-12-01 23:07:33,277 - DEBUG - Пользователь 1020541698 выбирает страну Админ панель для ворка
+2024-12-01 23:07:36,166 - DEBUG - Пользователь 1020541698 выбирает страну test для ворка
+2024-12-01 23:07:48,837 - DEBUG - Пользователь 1020541698 запустил бота
+2024-12-01 23:07:53,437 - DEBUG - Пользователь 1020541698 выбирает страну Админ панель для ворка
+2024-12-01 23:07:57,156 - DEBUG - Пользователь 1020541698 выбирает страну test для ворка
+2024-12-01 23:07:59,135 - DEBUG - Пользователь 1020541698 получает фон
+2024-12-01 23:07:59,403 - DEBUG - Получение изображения: https://sun9-30.userapi.com/impg/8th2jBKraNq0Mw_kY5itf8zv0DePuaPFBTrm2Q/KjG3hIWQ-9k.jpg?size=1920x1080&quality=96&sign=b44abb0b99ccd817f5a40ade6c884012&type=album
+2024-12-01 23:08:02,644 - DEBUG - Пользователь 1020541698 запустил бота
+2024-12-01 23:08:17,322 - DEBUG - Пользователь 1020541698 выбирает страну админ панель для ворка
+2024-12-01 23:08:20,999 - DEBUG - Пользователь 1020541698 выбирает страну админ панель для ворка
+2024-12-01 23:08:27,782 - DEBUG - Пользователь 1020541698 выбирает страну Админ панель для ворка
+2024-12-01 23:08:49,429 - INFO - --Логирование настроено--
+2024-12-01 23:08:49,443 - INFO - --Обработчики зарегистрированы--
+2024-12-01 23:08:49,444 - INFO - --База данных подключена--
+2024-12-01 23:08:49,444 - INFO - --запуск бота--
+2024-12-01 23:08:55,500 - DEBUG - Пользователь 1020541698 запустил бота
+2024-12-01 23:09:01,264 - DEBUG - Пользователь 1020541698 зашел в админ панель
+2024-12-01 23:09:03,781 - DEBUG - Пользователь 1020541698 запросил количество фонов
+2024-12-01 23:14:18,981 - INFO - --Логирование настроено--
+2024-12-01 23:14:18,996 - INFO - --Обработчики зарегистрированы--
+2024-12-01 23:14:18,997 - INFO - --База данных подключена--
+2024-12-01 23:14:19,055 - INFO - --Список фонов обновлен--
+2024-12-01 23:14:19,057 - INFO - --запуск бота--
+2024-12-01 23:14:29,613 - DEBUG - Пользователь 1020541698 запустил бота
+2024-12-01 23:14:31,374 - DEBUG - Пользователь 1020541698 выбирает страну test для ворка
+2024-12-01 23:14:32,683 - DEBUG - Пользователь 1020541698 получает фон
+2024-12-01 23:14:32,962 - DEBUG - Получение изображения: https://sun9-30.userapi.com/impg/8th2jBKraNq0Mw_kY5itf8zv0DePuaPFBTrm2Q/KjG3hIWQ-9k.jpg?size=1920x1080&quality=96&sign=b44abb0b99ccd817f5a40ade6c884012&type=album
+2024-12-01 23:14:38,825 - DEBUG - Пользователь 1020541698 получает фон
+2024-12-01 23:14:39,127 - DEBUG - Получение изображения: https://sun9-23.userapi.com/impg/aQ6XMCTRJazzZo8WfKBc2F9WthBMHcvDkwvlEQ/uR8GZfxX9pw.jpg?size=1920x1080&quality=96&sign=ae547c245ca8b539300a36e24ad73275&type=album
+2024-12-01 23:14:40,633 - DEBUG - Пользователь 1020541698 получает фон
+2024-12-01 23:14:40,918 - DEBUG - Получение изображения: https://sun9-50.userapi.com/impg/yJXy2AVSc8eNqPvjXf09c43eN4EN5o2ELE9XwQ/jIf6oH7g4QE.jpg?size=1920x1080&quality=96&sign=0b810d794cf3c77bc4c7394aadc4e501&type=album
+2024-12-01 23:14:41,900 - DEBUG - Пользователь 1020541698 получает фон
+2024-12-01 23:14:42,169 - DEBUG - Получение изображения: https://sun9-28.userapi.com/impg/T60QKF9r8Oo4rqnXZsR5WSTzWPNM-gG3DGTCUQ/m2SW1Cn8k-0.jpg?size=1920x1080&quality=96&sign=7bd17d79ed951c5ab6a3e5aae8cdc097&type=album
+2024-12-01 23:14:43,483 - DEBUG - Пользователь 1020541698 получает фон
+2024-12-01 23:14:43,765 - DEBUG - Получение изображения: https://sun9-80.userapi.com/impg/CEjT3XyskYiH3uuqLIn5wGC5XzfyPsn0XVkhqQ/lcWT0nny2fE.jpg?size=1920x1080&quality=96&sign=92f69d5d7a7a6a78dbe25eb1ce625711&type=album
+2024-12-01 23:14:57,529 - INFO - --Логирование настроено--
+2024-12-01 23:14:57,544 - INFO - --Обработчики зарегистрированы--
+2024-12-01 23:14:57,545 - INFO - --База данных подключена--
+2024-12-01 23:15:29,779 - INFO - --Список фонов обновлен--
+2024-12-01 23:15:29,780 - INFO - --запуск бота--
+2024-12-01 23:15:39,166 - DEBUG - Пользователь 1020541698 получает фон
+2024-12-01 23:15:39,436 - DEBUG - Получение изображения: https://sun9-80.userapi.com/impg/CEjT3XyskYiH3uuqLIn5wGC5XzfyPsn0XVkhqQ/lcWT0nny2fE.jpg?size=1920x1080&quality=96&sign=92f69d5d7a7a6a78dbe25eb1ce625711&type=album
+2024-12-01 23:16:27,717 - INFO - --Логирование настроено--
+2024-12-01 23:16:27,734 - INFO - --Обработчики зарегистрированы--
+2024-12-01 23:16:27,735 - INFO - --База данных подключена--
+2024-12-01 23:16:27,793 - INFO - --Список фонов обновлен--
+2024-12-01 23:16:27,795 - INFO - --запуск бота--
+2024-12-01 23:16:28,707 - DEBUG - Пользователь 1020541698 получает фон
+2024-12-01 23:16:28,991 - DEBUG - Получение изображения: https://sun9-46.userapi.com/impg/J9waibqpJQrE8fRzQWAbzKqqXYqTP-mBNQKXJQ/_seXH1SNDsQ.jpg?size=1920x1080&quality=96&sign=648660b57916e229a137498fc8c51c41&type=album
+2024-12-01 23:16:32,104 - DEBUG - Пользователь 1020541698 получает фон
+2024-12-01 23:16:32,374 - DEBUG - Получение изображения: https://sun9-21.userapi.com/impg/OucPvBPjhyNjCqp0zG7qyYQkOOxPYzR0BIlOKw/lBZODkogB3M.jpg?size=1920x1080&quality=96&sign=8398b589c76155fecb88273be82d78f5&type=album
+2024-12-01 23:16:34,635 - DEBUG - Пользователь 1020541698 получает фон
+2024-12-01 23:16:34,881 - DEBUG - Получение изображения: https://sun9-2.userapi.com/impg/0yUS1aw6ui6ytfptn2M63Opvepd6kxeMQicz9Q/Pe2m_TrXQV8.jpg?size=1920x1080&quality=96&sign=bae204075affcacfa9c910d99acaf60d&type=album
+2024-12-01 23:16:49,357 - INFO - --Логирование настроено--
+2024-12-01 23:16:49,371 - INFO - --Обработчики зарегистрированы--
+2024-12-01 23:16:49,372 - INFO - --База данных подключена--
+2024-12-01 23:16:49,429 - INFO - --Список фонов обновлен--
+2024-12-01 23:16:49,432 - INFO - --запуск бота--
+2024-12-01 23:16:55,732 - DEBUG - Пользователь 1020541698 получает фон
+2024-12-01 23:16:56,027 - DEBUG - Получение изображения: https://sun9-24.userapi.com/impg/fWw4ddvcN8HqQbL7t7cWe9EOc5d2Ejop8ZXCug/dQxusOIoJqY.jpg?size=1920x1080&quality=96&sign=1fbc6797f1b57a220f31ad443004be8d&type=album
+2024-12-01 23:25:31,919 - INFO - --Логирование настроено--
+2024-12-01 23:25:31,935 - INFO - --Обработчики зарегистрированы--
+2024-12-01 23:25:31,936 - INFO - --База данных подключена--
+2024-12-01 23:25:31,998 - INFO - --Список фонов обновлен--
+2024-12-01 23:25:31,999 - INFO - --запуск бота--
+2024-12-01 23:25:42,215 - DEBUG - Пользователь 1020541698 получает фон
+2024-12-01 23:25:42,525 - DEBUG - Получение изображения: https://sun9-5.userapi.com/impg/ej-zFJKO25bSBKKmAfIOdPFDlQycoISXQtoDag/HrmZzo9lbuM.jpg?size=1920x1080&quality=96&sign=db956cf5d96edf3858ccc63d02de8c33&type=album
+2024-12-01 23:25:45,301 - DEBUG - Пользователь 1020541698 получает фон
+2024-12-01 23:25:45,643 - DEBUG - Получение изображения: https://sun9-78.userapi.com/impg/xgpYS0_21Jl6gnRMAoN_da8_vbw8KlDVKgdk6A/S8OYrnup1xQ.jpg?size=1920x1080&quality=96&sign=2ac6da62bb541e224ead477821b750b5&type=album
+2024-12-01 23:25:48,157 - DEBUG - Пользователь 1020541698 получает фон
+2024-12-01 23:25:48,464 - DEBUG - Получение изображения: https://sun9-42.userapi.com/impg/_xr8MAw8NISOMJkExYPDBlD2nkAo1vn1SdOWUQ/P2KLddSK6bE.jpg?size=1920x1080&quality=96&sign=98c33a0660c08f448537b7433fefd811&type=album
+2024-12-01 23:25:57,212 - DEBUG - Пользователь 1020541698 зашел в админ панель
+2024-12-01 23:25:58,852 - DEBUG - Пользователь 1020541698 запросил количество фонов
+2024-12-01 23:26:06,539 - DEBUG - Пользователь 1020541698 запустил бота
+2024-12-01 23:26:07,815 - DEBUG - Пользователь 1020541698 выбирает страну test для ворка
+2024-12-01 23:26:08,614 - DEBUG - Пользователь 1020541698 получает фон
+2024-12-01 23:26:08,908 - DEBUG - Получение изображения: https://sun9-51.userapi.com/impg/OynDOq09KjBHlSBgKVcoeLodrk6OQLlJXSl18Q/P5gpVa1vRKo.jpg?size=1920x1080&quality=96&sign=5c60c20cc531aec07e8575cf4c82bfcd&type=album
+2024-12-01 23:26:13,995 - DEBUG - Пользователь 1020541698 запросил количество фонов

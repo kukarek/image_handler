@@ -1,9 +1,6 @@
 from bot.main import start
-
-def main() -> None:
-
-    start()
-
+import asyncio
 
 if __name__ == "__main__":
-    main()
+   
+    asyncio.run(start())

@@ -1,35 +1,24 @@
-from misc.main_config import ADMINS
-from aiogram.dispatcher.filters import BoundFilter
+from .filter import MyFilter
+from orm.model import User
 from aiogram import types
-from database import sql
+from misc.main_config import ADMINS
 
-
-class isUser(BoundFilter):
+class IsUser (MyFilter):
     """ 
     Все, кто не админы - юзеры
     """
-    async def check(self, message: types.Message) -> bool:
+    async def __call__(self, message: types.Message) -> bool:
+        return message.from_user.id not in ADMINS
 
-        for admin in ADMINS:
-            if admin == message.from_id:
-                return False
-        return True
-  
-class user_isNone(BoundFilter):
+class UserIsNone(MyFilter):
+    async def __call__(self, message: types.Message) -> bool:
+        return User(message.from_user.id).get_status() == "0"
 
-    async def check(self, message: types.Message) -> bool:
+class UserIsStart(MyFilter):
+    async def __call__(self, message: types.Message) -> bool:
+        return User(message.from_user.id).get_status() == "start"
 
-        return True if sql.get_status(message.from_id)[0] == "0" else False
-
-class user_isStart(BoundFilter):
-
-    async def check(self, message: types.Message) -> bool:
-
-        return True if sql.get_status(message.from_id)[0] == "start" else False
-    
-class user_isWork(BoundFilter):
-
-    async def check(self, message: types.Message) -> bool:
-
-        return True if sql.get_status(message.from_id)[0] == "work" or sql.get_status(message.from_id)[0] == "FRANCE" else False
-    
+class UserIsWork(MyFilter):
+    async def __call__(self, message: types.Message) -> bool:
+        status = User(message.from_user.id).get_status()
+        return status in ["work", "FRANCE"]

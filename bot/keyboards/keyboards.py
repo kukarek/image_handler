@@ -1,98 +1,72 @@
 from aiogram import types
-from misc.main_config import COUNTRY, AVAILABLE_COUNTRYES, ADMINS
+from misc.main_config import COUNTRY
 from ..filters.bot_status import ON_OFF
 from image_handler.config import handlers, Footage, Backgrounds, Preview
+from image_handler.config import AVAILABLE_COUNTRYES
 
 
 
 def create_start_keyboard(message: types.Message):
 
-    keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True, selective=True)
+    keyboard = []
     
     for country in COUNTRY:
-        keyboard.add(types.KeyboardButton(country))
+        
+        keyboard.append([types.KeyboardButton(text=country)])
 
-    return keyboard
+    return types.ReplyKeyboardMarkup(keyboard=keyboard, resize_keyboard=True, selective=True)
 
 def create_work_keyboard(message: types.Message):
 
-    keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True, selective=True)
+    keyboard = []
 
-    keyboard.add(types.KeyboardButton("Получить фото"))
-    for admin in ADMINS:
-        if admin == message.from_id:
-            keyboard.add(types.KeyboardButton("Получить видео"))
-    keyboard.add(types.KeyboardButton("Главное меню"))
+    keyboard.append([types.KeyboardButton(text="Получить фото")])
+    keyboard.append([types.KeyboardButton(text="Получить чистый фон")])
+    keyboard.append([types.KeyboardButton(text="Главное меню")])
+    
+    return types.ReplyKeyboardMarkup(keyboard=keyboard, resize_keyboard=True, selective=True)
 
-    return keyboard
+
 
 def admin_panel_keyboard(message: types.Message):
     
-    keyboard = types.ReplyKeyboardMarkup(row_width=2, resize_keyboard=True, selective=True)
+    keyboard = []
     
-    button1 = types.KeyboardButton("Количество фонов")
-    button2 = types.KeyboardButton("Статистика пролива")
-    button3 = types.KeyboardButton("Добавить администратора")
+    keyboard = [[types.KeyboardButton(text="Количество фонов"), types.KeyboardButton(text="Статистика пролива")],
+                [types.KeyboardButton(text="Добавить администратора")],
+                [types.KeyboardButton(text=("Запустить бота" if ON_OFF.status() == "Off" else "Остановить бота")), types.KeyboardButton(text="Конфиг")],
+                [types.KeyboardButton(text="Количество пользователей")],
+                [types.KeyboardButton(text="Рассылка")],
+                [types.KeyboardButton(text="Редактировать страны")],
+                [types.KeyboardButton(text="Главное меню")]
+    ]
 
-    if ON_OFF.status() == "Off":
-        button4 = types.KeyboardButton("Запустить бота")
-    else:
-        button4 = types.KeyboardButton("Остановить бота")
-
-    button5 = types.KeyboardButton("Конфиг")
-
-    button6 = types.KeyboardButton("Количество пользователей")
-    button7 = types.KeyboardButton("Рассылка")
-    button8 = types.KeyboardButton("Редактировать страны")
-    button9 = types.KeyboardButton("Главное меню")
-
-
-    keyboard.add(button1, button2)
-    keyboard.add(button3)
-    keyboard.add(button4, button5)
-    keyboard.add(button6)
-    keyboard.add(button7)
-    keyboard.add(button8)
-    keyboard.add(button9)
-
-    return keyboard
+    return types.ReplyKeyboardMarkup(keyboard=keyboard, resize_keyboard=True, selective=True)
 
 def edit_country_keyboard(message: types.Message):
 
-    keyboard = types.ReplyKeyboardMarkup(row_width=2, resize_keyboard=True, selective=True)
+    keyboard = []
 
     for country in AVAILABLE_COUNTRYES():
 
         if country in COUNTRY:
-            keyboard.add(types.KeyboardButton(f"Выключить {country}"))
+            keyboard.append([types.KeyboardButton(text = f"Выключить {country}")])
         else:
-            keyboard.add(types.KeyboardButton(f"Включить {country}"))
+            keyboard.append([types.KeyboardButton(text = f"Включить {country}")])
 
+    keyboard.append([types.KeyboardButton(text="Завершить")])
 
-    keyboard.add(types.KeyboardButton("Завершить"))
-
-    return keyboard
+    return  types.ReplyKeyboardMarkup(keyboard=keyboard, resize_keyboard=True, selective=True)
 
 def config_keyboard(message: types.Message):
 
-    keyboard = types.ReplyKeyboardMarkup(row_width=1, resize_keyboard=True, selective=True)
+    keyboard = [
 
-    if handlers.check(Footage()):
-        button1 = types.KeyboardButton("Выключить футажи")
-    else:
-        button1 = types.KeyboardButton("Включить футажи")
+        [types.KeyboardButton(text = ("Выключить футажи" if handlers.check(Footage()) else "Включить футажи"))],
+        [types.KeyboardButton(text = ("Выключить фон" if handlers.check(Backgrounds()) else "Включить фон"))],
+        [types.KeyboardButton(text = ("Выключить превью" if handlers.check(Preview()) else "Включить превью"))],
+        [types.KeyboardButton(text = "Завершить")]
 
-    if handlers.check(Backgrounds()):
-        button2 = types.KeyboardButton("Выключить фон")
-    else:
-        button2 = types.KeyboardButton("Включить фон")
+    ]
 
-    if handlers.check(Preview()):
-        button3 = types.KeyboardButton("Выключить превью")
-    else:
-        button3 = types.KeyboardButton("Включить превью")
-
-    keyboard.add(button1, button2, button3)
-    keyboard.add(types.KeyboardButton("Завершить"))
-
-    return keyboard
+    return types.ReplyKeyboardMarkup(keyboard=keyboard, resize_keyboard=True, selective=True)

@@ -1,37 +1,36 @@
 from misc.main_config import ADMINS
-from aiogram.dispatcher.filters import BoundFilter
+from .filter import MyFilter
+from orm.model import User
 from aiogram import types
-from database import sql
 
-class isAdmin(BoundFilter):
+class isAdmin(MyFilter):
 
-    async def check(self, message: types.Message) -> bool:
-
+    async def __call__(self, message: types.Message) -> bool:
         for admin in ADMINS:
-            if admin == message.from_id:
+            if admin == message.from_user.id:
                 return True
         return False
 
-class isAddingAdmin(BoundFilter):
+class isAddingAdmin(MyFilter):
 
-    async def check(self, message: types.Message) -> bool:
+    async def __call__(self, message: types.Message) -> bool:
 
-        return True if sql.get_admin_status(message.from_id)[0] == "adding admin" else False
+        return True if User(message.from_user.id).get_admin_status() == "adding admin" else False
 
-class isCreatingSending(BoundFilter):
+class isCreatingSending(MyFilter):
 
-    async def check(self, message: types.Message) -> bool:
+    async def __call__(self, message: types.Message) -> bool:
 
-        return True if sql.get_admin_status(message.from_id)[0] == "creating sending" else False
+        return True if User(message.from_user.id).get_admin_status() == "creating sending" else False
     
-class Editing_Country(BoundFilter):
+class Editing_Country(MyFilter):
 
-    async def check(self, message: types.Message) -> bool:
+    async def __call__(self, message: types.Message) -> bool:
 
-        return True if sql.get_admin_status(message.from_id)[0] == "editing country" else False 
+        return True if User(message.from_user.id).get_admin_status() == "editing country" else False 
     
-class Editing_Config(BoundFilter):
+class Editing_Config(MyFilter):
 
-    async def check(self, message: types.Message) -> bool:
+    async def __call__(self, message: types.Message) -> bool:
 
-        return True if sql.get_admin_status(message.from_id)[0] == "editing config" else False 
+        return True if User(message.from_user.id).get_admin_status() == "editing config" else False 

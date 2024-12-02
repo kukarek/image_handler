@@ -1,10 +1,11 @@
 from misc.main_config import COUNTRY
-from aiogram.dispatcher.filters import BoundFilter
+from .filter import MyFilter
 from aiogram import types
-from database import sql
+from orm.model import User
 
 
-class Threads():
+
+class Threads:
 
     def __init__(self) -> None:
         self.threads = []
@@ -21,6 +22,7 @@ class Threads():
 
 THREADS = Threads() 
 
+
 class On_Off:
 
     def __init__(self):
@@ -35,31 +37,32 @@ class On_Off:
     def status(self):
         return self.__status
 
+
 ON_OFF = On_Off()
 
 
-class botEnable(BoundFilter):
+class botEnable(MyFilter):
 
-    async def check(self, message: types.Message) -> bool:
+    async def __call__(self, message: types.Message) -> bool:
 
         return True if ON_OFF.status() == "On" else False
 
-class botDisable(BoundFilter):
+class botDisable(MyFilter):
 
-    async def check(self, message: types.Message) -> bool:
+    async def __call__(self, message: types.Message) -> bool:
 
         return True if ON_OFF == "Off" else False
     
-class Huge_Pressure(BoundFilter):
+class Huge_Pressure(MyFilter):
 
-    async def check(self, message: types.Message) -> bool:
+    async def __call__(self, message: types.Message) -> bool:
 
         return True if THREADS.count() > 10 else False
     
-class Incorrect_Country(BoundFilter):
+class Incorrect_Country(MyFilter):
 
-    async def check(self, message: types.Message) -> bool:
+    async def __call__(self, message: types.Message) -> bool:
 
-        return True if sql.get_country(message.from_id)[0] not in COUNTRY else False
+        return True if User(message.from_user.id).get_country() not in COUNTRY else False
 
 
